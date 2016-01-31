@@ -1,5 +1,3 @@
 require "romaji_kit/version"
-
-module RomajiKit
-  # Your code goes here...
-end
+require 'romaji_kit/converter'
+require "romaji_kit/cli"
