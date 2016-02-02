@@ -4,45 +4,9 @@ require 'spec_helper'
 
 describe RomajiKit::Converter do
   describe '.hepburnize' do
-
     context 'given "し"' do
       subject { described_class.hepburnize('し') }
       it { is_expected.to eq 'shi' }
-    end
-
-    context 'given "ち"' do
-      subject { described_class.hepburnize('ち') }
-      it { is_expected.to eq 'chi' }
-    end
-
-    context 'given "つ"' do
-      subject { described_class.hepburnize('つ') }
-      it { is_expected.to eq 'tsu' }
-    end
-
-    context 'given "ふ"' do
-      subject { described_class.hepburnize('ふ') }
-      it { is_expected.to eq 'fu' }
-    end
-
-    context 'given "じ"' do
-      subject { described_class.hepburnize('じ') }
-      it { is_expected.to eq 'ji' }
-    end
-
-    context 'given "ず"' do
-      subject { described_class.hepburnize('ず') }
-      it { is_expected.to eq 'zu' }
-    end
-
-    context 'given "ぢ"' do
-      subject { described_class.hepburnize('ぢ') }
-      it { is_expected.to eq 'ji' }
-    end
-
-    context 'given "づ"' do
-      subject { described_class.hepburnize('づ') }
-      it { is_expected.to eq 'zu' }
     end
 
     context 'given "しゃ"' do
@@ -60,6 +24,16 @@ describe RomajiKit::Converter do
       it { is_expected.to eq 'sho' }
     end
 
+    context 'given "ち"' do
+      subject { described_class.hepburnize('ち') }
+      it { is_expected.to eq 'chi' }
+    end
+
+    context 'given "つ"' do
+      subject { described_class.hepburnize('つ') }
+      it { is_expected.to eq 'tsu' }
+    end
+
     context 'given "ちゃ"' do
       subject { described_class.hepburnize('ちゃ') }
       it { is_expected.to eq 'cha' }
@@ -75,19 +49,29 @@ describe RomajiKit::Converter do
       it { is_expected.to eq 'cho' }
     end
 
-    context 'given "りゃ"' do
-      subject { described_class.hepburnize('りゃ') }
-      it { is_expected.to eq 'rya' }
+    context 'given "ふ"' do
+      subject { described_class.hepburnize('ふ') }
+      it { is_expected.to eq 'fu' }
     end
 
-    context 'given "りゅ"' do
-      subject { described_class.hepburnize('りゅ') }
-      it { is_expected.to eq 'ryu' }
+    context 'given "ゐ"' do
+      subject { described_class.hepburnize('ゐ') }
+      it { is_expected.to eq 'i' }
     end
 
-    context 'given "りょ"' do
-      subject { described_class.hepburnize('りょ') }
-      it { is_expected.to eq 'ryo' }
+    context 'given "ゑ"' do
+      subject { described_class.hepburnize('ゑ') }
+      it { is_expected.to eq 'e' }
+    end
+
+    context 'given "を"' do
+      subject { described_class.hepburnize('を') }
+      it { is_expected.to eq 'o' }
+    end
+
+    context 'given "じ"' do
+      subject { described_class.hepburnize('じ') }
+      it { is_expected.to eq 'ji' }
     end
 
     context 'given "じゃ"' do
@@ -102,6 +86,31 @@ describe RomajiKit::Converter do
 
     context 'given "じょ"' do
       subject { described_class.hepburnize('じょ') }
+      it { is_expected.to eq 'jo' }
+    end
+
+    context 'given "ぢ"' do
+      subject { described_class.hepburnize('ぢ') }
+      it { is_expected.to eq 'ji' }
+    end
+
+    context 'given "づ"' do
+      subject { described_class.hepburnize('づ') }
+      it { is_expected.to eq 'zu' }
+    end
+
+    context 'given "ぢゃ"' do
+      subject { described_class.hepburnize('ぢゃ') }
+      it { is_expected.to eq 'ja' }
+    end
+
+    context 'given "ぢゅ"' do
+      subject { described_class.hepburnize('ぢゅ') }
+      it { is_expected.to eq 'ju' }
+    end
+
+    context 'given "ぢょ"' do
+      subject { described_class.hepburnize('ぢょ') }
       it { is_expected.to eq 'jo' }
     end
 
