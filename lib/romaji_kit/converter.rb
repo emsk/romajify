@@ -95,6 +95,28 @@ module RomajiKit
       リャ: 'rya', リュ: 'ryu', リョ: 'ryo'
     }
 
+    NIHON_MONOGRAPHS = {
+      し: 'si', ち: 'ti', つ: 'tu', ふ: 'hu', じ: 'zi', ぢ: 'di', づ: 'du',
+      シ: 'si', チ: 'ti', ツ: 'tu', フ: 'hu', ジ: 'zi', ヂ: 'di', ヅ: 'du',
+
+      ゐ: 'wi', ゑ: 'we', を: 'wo',
+      ヰ: 'wi', ヱ: 'we', ヲ: 'wo'
+    }
+
+    NIHON_DIGRAPHS = {
+      しゃ: 'sya', しゅ: 'syu', しょ: 'syo',
+      シャ: 'sya', シュ: 'syu', ショ: 'syo',
+
+      じゃ: 'zya', じゅ: 'zyu', じょ: 'zyo',
+      ジャ: 'zya', ジュ: 'zyu', ジョ: 'zyo',
+
+      ちゃ: 'tya', ちゅ: 'tyu', ちょ: 'tyo',
+      チャ: 'tya', チュ: 'tyu', チョ: 'tyo',
+
+      ぢゃ: 'dya', ぢゅ: 'dyu', ぢょ: 'dyo',
+      ヂャ: 'dya', ヂュ: 'dyu', ヂョ: 'dyo'
+    }
+
     def self.hepburnize(text)
       result_text = text.dup
 
@@ -116,6 +138,27 @@ module RomajiKit
       # Long vowels: 長音
       result_text.gsub!(/oo(.+)/, 'o\1')
       result_text.gsub!(/ou/, 'o')
+      result_text.gsub!(/uu/, 'u')
+
+      result_text
+    end
+
+    def self.nihon(text)
+      result_text = text.dup
+
+      DIGRAPHS.merge(NIHON_DIGRAPHS).each do |kana, nihon_shiki|
+        result_text.gsub!(/#{kana}/, nihon_shiki)
+      end
+
+      MONOGRAPHS.merge(NIHON_MONOGRAPHS).each do |kana, nihon_shiki|
+        result_text.gsub!(/#{kana}/, nihon_shiki)
+      end
+
+      # Double consonants: 促音
+      result_text.gsub!(/[っッ](.)/, '\1\1')
+
+      # Long vowels: 長音
+      result_text.gsub!(/ou|oo/, 'o')
       result_text.gsub!(/uu/, 'u')
 
       result_text
