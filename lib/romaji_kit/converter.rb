@@ -117,7 +117,7 @@ module RomajiKit
       ヂャ: 'dya', ヂュ: 'dyu', ヂョ: 'dyo'
     }
 
-    def self.hepburnize(text)
+    def self.hepburnize(text, is_upcase = false)
       result_text = text.dup
 
       DIGRAPHS.each do |kana, hepburn|
@@ -140,10 +140,12 @@ module RomajiKit
       result_text.gsub!(/ou/, 'o')
       result_text.gsub!(/uu/, 'u')
 
+      result_text.upcase! if is_upcase
+
       result_text
     end
 
-    def self.nihon(text)
+    def self.nihon(text, is_upcase = false)
       result_text = text.dup
 
       DIGRAPHS.merge(NIHON_DIGRAPHS).each do |kana, nihon_shiki|
@@ -160,6 +162,8 @@ module RomajiKit
       # Long vowels: 長音
       result_text.gsub!(/ou|oo/, 'o')
       result_text.gsub!(/uu/, 'u')
+
+      result_text.upcase! if is_upcase
 
       result_text
     end

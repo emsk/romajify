@@ -283,6 +283,11 @@ describe RomajiKit::Converter do
       subject { described_class.hepburnize('りきゅうちゃ') }
       it { is_expected.to eq 'rikyucha' }
     end
+
+    context 'given upcase option' do
+      subject { described_class.hepburnize('さくらいろ', true) }
+      it { is_expected.to eq 'SAKURAIRO' }
+    end
   end
 
   describe '.nihon' do
@@ -564,6 +569,11 @@ describe RomajiKit::Converter do
     context 'given "uu"' do
       subject { described_class.nihon('りきゅうちゃ') }
       it { is_expected.to eq 'rikyutya' }
+    end
+
+    context 'given upcase option' do
+      subject { described_class.nihon('さくらいろ', true) }
+      it { is_expected.to eq 'SAKURAIRO' }
     end
   end
 end
