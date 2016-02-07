@@ -117,6 +117,10 @@ module RomajiKit
       ヂャ: 'dya', ヂュ: 'dyu', ヂョ: 'dyo'
     }
 
+    # Convert kana to Hepburn romaji
+    #
+    # @param text [String] Kana text
+    # @param is_upcase [Boolean] Whether to return upper case
     def self.hepburnize(text, is_upcase = false)
       result_text = text.dup
 
@@ -140,6 +144,10 @@ module RomajiKit
       result_text
     end
 
+    # Convert kana to Nihon-shiki romaji
+    #
+    # @param text [String] Kana text
+    # @param is_upcase [Boolean] Whether to return upper case
     def self.nihon(text, is_upcase = false)
       result_text = text.dup
 
