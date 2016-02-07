@@ -120,13 +120,8 @@ module RomajiKit
     def self.hepburnize(text, is_upcase = false)
       result_text = text.dup
 
-      DIGRAPHS.each do |kana, hepburn|
-        result_text.gsub!(/#{kana}/, hepburn)
-      end
-
-      MONOGRAPHS.each do |kana, hepburn|
-        result_text.gsub!(/#{kana}/, hepburn)
-      end
+      result_text = romanize(result_text, DIGRAPHS)
+      result_text = romanize(result_text, MONOGRAPHS)
 
       # Double consonants: 促音
       result_text.gsub!(/[っッ]c/, 'tc')
@@ -148,13 +143,8 @@ module RomajiKit
     def self.nihon(text, is_upcase = false)
       result_text = text.dup
 
-      DIGRAPHS.merge(NIHON_DIGRAPHS).each do |kana, nihon_shiki|
-        result_text.gsub!(/#{kana}/, nihon_shiki)
-      end
-
-      MONOGRAPHS.merge(NIHON_MONOGRAPHS).each do |kana, nihon_shiki|
-        result_text.gsub!(/#{kana}/, nihon_shiki)
-      end
+      result_text = romanize(result_text, DIGRAPHS.merge(NIHON_DIGRAPHS))
+      result_text = romanize(result_text, MONOGRAPHS.merge(NIHON_MONOGRAPHS))
 
       # Double consonants: 促音
       result_text.gsub!(/[っッ](.)/, '\1\1')
@@ -167,5 +157,17 @@ module RomajiKit
 
       result_text
     end
+
+    def self.romanize(text, chars)
+      result_text = text.dup
+
+      chars.each do |kana, romaji|
+        result_text.gsub!(/#{kana}/, romaji)
+      end
+
+      result_text
+    end
+
+    private_class_method :romanize
   end
 end
