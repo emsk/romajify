@@ -13,6 +13,12 @@ module RomajiKit
     def nihon(text)
       puts Converter.nihon(text, options[:upcase])
     end
+
+    desc '-v, --version', 'Print the version'
+    map %w(-v --version) => :version
+    def version
+      puts "romaji_kit #{RomajiKit::VERSION}"
+    end
   end
 
   CLI.start
