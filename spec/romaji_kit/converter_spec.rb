@@ -4,283 +4,285 @@ require 'spec_helper'
 
 describe RomajiKit::Converter do
   describe '.hepburnize' do
+    subject { described_class.hepburnize(text) }
+
     context 'given "し"' do
-      subject { described_class.hepburnize('し') }
+      let(:text) { 'し' }
       it { is_expected.to eq 'shi' }
     end
 
     context 'given "シ"' do
-      subject { described_class.hepburnize('シ') }
+      let(:text) { 'シ' }
       it { is_expected.to eq 'shi' }
     end
 
     context 'given "しゃ"' do
-      subject { described_class.hepburnize('しゃ') }
+      let(:text) { 'しゃ' }
       it { is_expected.to eq 'sha' }
     end
 
     context 'given "シャ"' do
-      subject { described_class.hepburnize('シャ') }
+      let(:text) { 'シャ' }
       it { is_expected.to eq 'sha' }
     end
 
     context 'given "しゅ"' do
-      subject { described_class.hepburnize('しゅ') }
+      let(:text) { 'しゅ' }
       it { is_expected.to eq 'shu' }
     end
 
     context 'given "シュ"' do
-      subject { described_class.hepburnize('シュ') }
+      let(:text) { 'シュ' }
       it { is_expected.to eq 'shu' }
     end
 
     context 'given "しょ"' do
-      subject { described_class.hepburnize('しょ') }
+      let(:text) { 'しょ' }
       it { is_expected.to eq 'sho' }
     end
 
     context 'given "ショ"' do
-      subject { described_class.hepburnize('ショ') }
+      let(:text) { 'ショ' }
       it { is_expected.to eq 'sho' }
     end
 
     context 'given "ち"' do
-      subject { described_class.hepburnize('ち') }
+      let(:text) { 'ち' }
       it { is_expected.to eq 'chi' }
     end
 
     context 'given "チ"' do
-      subject { described_class.hepburnize('チ') }
+      let(:text) { 'チ' }
       it { is_expected.to eq 'chi' }
     end
 
     context 'given "つ"' do
-      subject { described_class.hepburnize('つ') }
+      let(:text) { 'つ' }
       it { is_expected.to eq 'tsu' }
     end
 
     context 'given "ツ"' do
-      subject { described_class.hepburnize('ツ') }
+      let(:text) { 'ツ' }
       it { is_expected.to eq 'tsu' }
     end
 
     context 'given "ちゃ"' do
-      subject { described_class.hepburnize('ちゃ') }
+      let(:text) { 'ちゃ' }
       it { is_expected.to eq 'cha' }
     end
 
     context 'given "チャ"' do
-      subject { described_class.hepburnize('チャ') }
+      let(:text) { 'チャ' }
       it { is_expected.to eq 'cha' }
     end
 
     context 'given "ちゅ"' do
-      subject { described_class.hepburnize('ちゅ') }
+      let(:text) { 'ちゅ' }
       it { is_expected.to eq 'chu' }
     end
 
     context 'given "チュ"' do
-      subject { described_class.hepburnize('チュ') }
+      let(:text) { 'チュ' }
       it { is_expected.to eq 'chu' }
     end
 
     context 'given "ちょ"' do
-      subject { described_class.hepburnize('ちょ') }
+      let(:text) { 'ちょ' }
       it { is_expected.to eq 'cho' }
     end
 
     context 'given "チョ"' do
-      subject { described_class.hepburnize('チョ') }
+      let(:text) { 'チョ' }
       it { is_expected.to eq 'cho' }
     end
 
     context 'given "ふ"' do
-      subject { described_class.hepburnize('ふ') }
+      let(:text) { 'ふ' }
       it { is_expected.to eq 'fu' }
     end
 
     context 'given "フ"' do
-      subject { described_class.hepburnize('フ') }
+      let(:text) { 'フ' }
       it { is_expected.to eq 'fu' }
     end
 
     context 'given "ゐ"' do
-      subject { described_class.hepburnize('ゐ') }
+      let(:text) { 'ゐ' }
       it { is_expected.to eq 'i' }
     end
 
     context 'given "ヰ"' do
-      subject { described_class.hepburnize('ヰ') }
+      let(:text) { 'ヰ' }
       it { is_expected.to eq 'i' }
     end
 
     context 'given "ゑ"' do
-      subject { described_class.hepburnize('ゑ') }
+      let(:text) { 'ゑ' }
       it { is_expected.to eq 'e' }
     end
 
     context 'given "ヱ"' do
-      subject { described_class.hepburnize('ヱ') }
+      let(:text) { 'ヱ' }
       it { is_expected.to eq 'e' }
     end
 
     context 'given "を"' do
-      subject { described_class.hepburnize('を') }
+      let(:text) { 'を' }
       it { is_expected.to eq 'o' }
     end
 
     context 'given "ヲ"' do
-      subject { described_class.hepburnize('ヲ') }
+      let(:text) { 'ヲ' }
       it { is_expected.to eq 'o' }
     end
 
     context 'given "じ"' do
-      subject { described_class.hepburnize('じ') }
+      let(:text) { 'じ' }
       it { is_expected.to eq 'ji' }
     end
 
     context 'given "ジ"' do
-      subject { described_class.hepburnize('ジ') }
+      let(:text) { 'ジ' }
       it { is_expected.to eq 'ji' }
     end
 
     context 'given "じゃ"' do
-      subject { described_class.hepburnize('じゃ') }
+      let(:text) { 'じゃ' }
       it { is_expected.to eq 'ja' }
     end
 
     context 'given "ジャ"' do
-      subject { described_class.hepburnize('ジャ') }
+      let(:text) { 'ジャ' }
       it { is_expected.to eq 'ja' }
     end
 
     context 'given "じゅ"' do
-      subject { described_class.hepburnize('じゅ') }
+      let(:text) { 'じゅ' }
       it { is_expected.to eq 'ju' }
     end
 
     context 'given "ジュ"' do
-      subject { described_class.hepburnize('ジュ') }
+      let(:text) { 'ジュ' }
       it { is_expected.to eq 'ju' }
     end
 
     context 'given "じょ"' do
-      subject { described_class.hepburnize('じょ') }
+      let(:text) { 'じょ' }
       it { is_expected.to eq 'jo' }
     end
 
     context 'given "ジョ"' do
-      subject { described_class.hepburnize('ジョ') }
+      let(:text) { 'ジョ' }
       it { is_expected.to eq 'jo' }
     end
 
     context 'given "ぢ"' do
-      subject { described_class.hepburnize('ぢ') }
+      let(:text) { 'ぢ' }
       it { is_expected.to eq 'ji' }
     end
 
     context 'given "ヂ"' do
-      subject { described_class.hepburnize('ヂ') }
+      let(:text) { 'ヂ' }
       it { is_expected.to eq 'ji' }
     end
 
     context 'given "づ"' do
-      subject { described_class.hepburnize('づ') }
+      let(:text) { 'づ' }
       it { is_expected.to eq 'zu' }
     end
 
     context 'given "ヅ"' do
-      subject { described_class.hepburnize('ヅ') }
+      let(:text) { 'ヅ' }
       it { is_expected.to eq 'zu' }
     end
 
     context 'given "ぢゃ"' do
-      subject { described_class.hepburnize('ぢゃ') }
+      let(:text) { 'ぢゃ' }
       it { is_expected.to eq 'ja' }
     end
 
     context 'given "ヂャ"' do
-      subject { described_class.hepburnize('ヂャ') }
+      let(:text) { 'ヂャ' }
       it { is_expected.to eq 'ja' }
     end
 
     context 'given "ぢゅ"' do
-      subject { described_class.hepburnize('ぢゅ') }
+      let(:text) { 'ぢゅ' }
       it { is_expected.to eq 'ju' }
     end
 
     context 'given "ヂュ"' do
-      subject { described_class.hepburnize('ヂュ') }
+      let(:text) { 'ヂュ' }
       it { is_expected.to eq 'ju' }
     end
 
     context 'given "ぢょ"' do
-      subject { described_class.hepburnize('ぢょ') }
+      let(:text) { 'ぢょ' }
       it { is_expected.to eq 'jo' }
     end
 
     context 'given "ヂョ"' do
-      subject { described_class.hepburnize('ヂョ') }
+      let(:text) { 'ヂョ' }
       it { is_expected.to eq 'jo' }
     end
 
     context 'given "っ"' do
-      subject { described_class.hepburnize('いっこんぞめ') }
+      let(:text) { 'いっこんぞめ' }
       it { is_expected.to eq 'ikkonzome' }
     end
 
     context 'given "ッ"' do
-      subject { described_class.hepburnize('イッコンゾメ') }
+      let(:text) { 'イッコンゾメ' }
       it { is_expected.to eq 'ikkonzome' }
     end
 
     context 'given "っ" before "c"' do
-      subject { described_class.hepburnize('まっちゃ') }
+      let(:text) { 'まっちゃ' }
       it { is_expected.to eq 'matcha' }
     end
 
     context 'given "ッ" before "c"' do
-      subject { described_class.hepburnize('マッチャ') }
+      let(:text) { 'マッチャ' }
       it { is_expected.to eq 'matcha' }
     end
 
     context 'given "n"' do
-      subject { described_class.hepburnize('こんじき') }
+      let(:text) { 'こんじき' }
       it { is_expected.to eq 'konjiki' }
     end
 
     context 'given "n" before "b"' do
-      subject { described_class.hepburnize('しんばしいろ') }
+      let(:text) { 'しんばしいろ' }
       it { is_expected.to eq 'shimbashiiro' }
     end
 
     context 'given "n" before "m"' do
-      subject { described_class.hepburnize('ほんむらさき') }
+      let(:text) { 'ほんむらさき' }
       it { is_expected.to eq 'hommurasaki' }
     end
 
     context 'given "n" before "p"' do
-      subject { described_class.hepburnize('たんぽぽいろ') }
+      let(:text) { 'たんぽぽいろ' }
       it { is_expected.to eq 'tampopoiro' }
     end
 
     context 'given "oo"' do
-      subject { described_class.hepburnize('まそおいろ') }
+      let(:text) { 'まそおいろ' }
       it { is_expected.to eq 'masoiro' }
     end
 
     context 'given "oo" at the end of the text' do
-      subject { described_class.hepburnize('まそお') }
+      let(:text) { 'まそお' }
       it { is_expected.to eq 'masoo' }
     end
 
     context 'given "ou"' do
-      subject { described_class.hepburnize('きょうむらさき') }
+      let(:text) { 'きょうむらさき' }
       it { is_expected.to eq 'kyomurasaki' }
     end
 
     context 'given "uu"' do
-      subject { described_class.hepburnize('りきゅうちゃ') }
+      let(:text) { 'りきゅうちゃ' }
       it { is_expected.to eq 'rikyucha' }
     end
 
@@ -291,283 +293,285 @@ describe RomajiKit::Converter do
   end
 
   describe '.nihon' do
+    subject { described_class.nihon(text) }
+
     context 'given "し"' do
-      subject { described_class.nihon('し') }
+      let(:text) { 'し' }
       it { is_expected.to eq 'si' }
     end
 
     context 'given "シ"' do
-      subject { described_class.nihon('シ') }
+      let(:text) { 'シ' }
       it { is_expected.to eq 'si' }
     end
 
     context 'given "しゃ"' do
-      subject { described_class.nihon('しゃ') }
+      let(:text) { 'しゃ' }
       it { is_expected.to eq 'sya' }
     end
 
     context 'given "シャ"' do
-      subject { described_class.nihon('シャ') }
+      let(:text) { 'シャ' }
       it { is_expected.to eq 'sya' }
     end
 
     context 'given "しゅ"' do
-      subject { described_class.nihon('しゅ') }
+      let(:text) { 'しゅ' }
       it { is_expected.to eq 'syu' }
     end
 
     context 'given "シュ"' do
-      subject { described_class.nihon('シュ') }
+      let(:text) { 'シュ' }
       it { is_expected.to eq 'syu' }
     end
 
     context 'given "しょ"' do
-      subject { described_class.nihon('しょ') }
+      let(:text) { 'しょ' }
       it { is_expected.to eq 'syo' }
     end
 
     context 'given "ショ"' do
-      subject { described_class.nihon('ショ') }
+      let(:text) { 'ショ' }
       it { is_expected.to eq 'syo' }
     end
 
     context 'given "ち"' do
-      subject { described_class.nihon('ち') }
+      let(:text) { 'ち' }
       it { is_expected.to eq 'ti' }
     end
 
     context 'given "チ"' do
-      subject { described_class.nihon('チ') }
+      let(:text) { 'チ' }
       it { is_expected.to eq 'ti' }
     end
 
     context 'given "つ"' do
-      subject { described_class.nihon('つ') }
+      let(:text) { 'つ' }
       it { is_expected.to eq 'tu' }
     end
 
     context 'given "ツ"' do
-      subject { described_class.nihon('ツ') }
+      let(:text) { 'ツ' }
       it { is_expected.to eq 'tu' }
     end
 
     context 'given "ちゃ"' do
-      subject { described_class.nihon('ちゃ') }
+      let(:text) { 'ちゃ' }
       it { is_expected.to eq 'tya' }
     end
 
     context 'given "チャ"' do
-      subject { described_class.nihon('チャ') }
+      let(:text) { 'チャ' }
       it { is_expected.to eq 'tya' }
     end
 
     context 'given "ちゅ"' do
-      subject { described_class.nihon('ちゅ') }
+      let(:text) { 'ちゅ' }
       it { is_expected.to eq 'tyu' }
     end
 
     context 'given "チュ"' do
-      subject { described_class.nihon('チュ') }
+      let(:text) { 'チュ' }
       it { is_expected.to eq 'tyu' }
     end
 
     context 'given "ちょ"' do
-      subject { described_class.nihon('ちょ') }
+      let(:text) { 'ちょ' }
       it { is_expected.to eq 'tyo' }
     end
 
     context 'given "チョ"' do
-      subject { described_class.nihon('チョ') }
+      let(:text) { 'チョ' }
       it { is_expected.to eq 'tyo' }
     end
 
     context 'given "ふ"' do
-      subject { described_class.nihon('ふ') }
+      let(:text) { 'ふ' }
       it { is_expected.to eq 'hu' }
     end
 
     context 'given "フ"' do
-      subject { described_class.nihon('フ') }
+      let(:text) { 'フ' }
       it { is_expected.to eq 'hu' }
     end
 
     context 'given "ゐ"' do
-      subject { described_class.nihon('ゐ') }
+      let(:text) { 'ゐ' }
       it { is_expected.to eq 'wi' }
     end
 
     context 'given "ヰ"' do
-      subject { described_class.nihon('ヰ') }
+      let(:text) { 'ヰ' }
       it { is_expected.to eq 'wi' }
     end
 
     context 'given "ゑ"' do
-      subject { described_class.nihon('ゑ') }
+      let(:text) { 'ゑ' }
       it { is_expected.to eq 'we' }
     end
 
     context 'given "ヱ"' do
-      subject { described_class.nihon('ヱ') }
+      let(:text) { 'ヱ' }
       it { is_expected.to eq 'we' }
     end
 
     context 'given "を"' do
-      subject { described_class.nihon('を') }
+      let(:text) { 'を' }
       it { is_expected.to eq 'wo' }
     end
 
     context 'given "ヲ"' do
-      subject { described_class.nihon('ヲ') }
+      let(:text) { 'ヲ' }
       it { is_expected.to eq 'wo' }
     end
 
     context 'given "じ"' do
-      subject { described_class.nihon('じ') }
+      let(:text) { 'じ' }
       it { is_expected.to eq 'zi' }
     end
 
     context 'given "ジ"' do
-      subject { described_class.nihon('ジ') }
+      let(:text) { 'ジ' }
       it { is_expected.to eq 'zi' }
     end
 
     context 'given "じゃ"' do
-      subject { described_class.nihon('じゃ') }
+      let(:text) { 'じゃ' }
       it { is_expected.to eq 'zya' }
     end
 
     context 'given "ジャ"' do
-      subject { described_class.nihon('ジャ') }
+      let(:text) { 'ジャ' }
       it { is_expected.to eq 'zya' }
     end
 
     context 'given "じゅ"' do
-      subject { described_class.nihon('じゅ') }
+      let(:text) { 'じゅ' }
       it { is_expected.to eq 'zyu' }
     end
 
     context 'given "ジュ"' do
-      subject { described_class.nihon('ジュ') }
+      let(:text) { 'ジュ' }
       it { is_expected.to eq 'zyu' }
     end
 
     context 'given "じょ"' do
-      subject { described_class.nihon('じょ') }
+      let(:text) { 'じょ' }
       it { is_expected.to eq 'zyo' }
     end
 
     context 'given "ジョ"' do
-      subject { described_class.nihon('ジョ') }
+      let(:text) { 'ジョ' }
       it { is_expected.to eq 'zyo' }
     end
 
     context 'given "ぢ"' do
-      subject { described_class.nihon('ぢ') }
+      let(:text) { 'ぢ' }
       it { is_expected.to eq 'di' }
     end
 
     context 'given "ヂ"' do
-      subject { described_class.nihon('ヂ') }
+      let(:text) { 'ヂ' }
       it { is_expected.to eq 'di' }
     end
 
     context 'given "づ"' do
-      subject { described_class.nihon('づ') }
+      let(:text) { 'づ' }
       it { is_expected.to eq 'du' }
     end
 
     context 'given "ヅ"' do
-      subject { described_class.nihon('ヅ') }
+      let(:text) { 'ヅ' }
       it { is_expected.to eq 'du' }
     end
 
     context 'given "ぢゃ"' do
-      subject { described_class.nihon('ぢゃ') }
+      let(:text) { 'ぢゃ' }
       it { is_expected.to eq 'dya' }
     end
 
     context 'given "ヂャ"' do
-      subject { described_class.nihon('ヂャ') }
+      let(:text) { 'ヂャ' }
       it { is_expected.to eq 'dya' }
     end
 
     context 'given "ぢゅ"' do
-      subject { described_class.nihon('ぢゅ') }
+      let(:text) { 'ぢゅ' }
       it { is_expected.to eq 'dyu' }
     end
 
     context 'given "ヂュ"' do
-      subject { described_class.nihon('ヂュ') }
+      let(:text) { 'ヂュ' }
       it { is_expected.to eq 'dyu' }
     end
 
     context 'given "ぢょ"' do
-      subject { described_class.nihon('ぢょ') }
+      let(:text) { 'ぢょ' }
       it { is_expected.to eq 'dyo' }
     end
 
     context 'given "ヂョ"' do
-      subject { described_class.nihon('ヂョ') }
+      let(:text) { 'ヂョ' }
       it { is_expected.to eq 'dyo' }
     end
 
     context 'given "っ"' do
-      subject { described_class.nihon('いっこんぞめ') }
+      let(:text) { 'いっこんぞめ' }
       it { is_expected.to eq 'ikkonzome' }
     end
 
     context 'given "ッ"' do
-      subject { described_class.nihon('イッコンゾメ') }
+      let(:text) { 'イッコンゾメ' }
       it { is_expected.to eq 'ikkonzome' }
     end
 
     context 'given "っ" before "c"' do
-      subject { described_class.nihon('まっちゃ') }
+      let(:text) { 'まっちゃ' }
       it { is_expected.to eq 'mattya' }
     end
 
     context 'given "ッ" before "c"' do
-      subject { described_class.nihon('マッチャ') }
+      let(:text) { 'マッチャ' }
       it { is_expected.to eq 'mattya' }
     end
 
     context 'given "n"' do
-      subject { described_class.nihon('こんじき') }
+      let(:text) { 'こんじき' }
       it { is_expected.to eq 'konziki' }
     end
 
     context 'given "n" before "b"' do
-      subject { described_class.nihon('しんばしいろ') }
+      let(:text) { 'しんばしいろ' }
       it { is_expected.to eq 'sinbasiiro' }
     end
 
     context 'given "n" before "m"' do
-      subject { described_class.nihon('ほんむらさき') }
+      let(:text) { 'ほんむらさき' }
       it { is_expected.to eq 'honmurasaki' }
     end
 
     context 'given "n" before "p"' do
-      subject { described_class.nihon('たんぽぽいろ') }
+      let(:text) { 'たんぽぽいろ' }
       it { is_expected.to eq 'tanpopoiro' }
     end
 
     context 'given "oo"' do
-      subject { described_class.nihon('まそおいろ') }
+      let(:text) { 'まそおいろ' }
       it { is_expected.to eq 'masoiro' }
     end
 
     context 'given "oo" at the end of the text' do
-      subject { described_class.nihon('まそお') }
+      let(:text) { 'まそお' }
       it { is_expected.to eq 'maso' }
     end
 
     context 'given "ou"' do
-      subject { described_class.nihon('きょうむらさき') }
+      let(:text) { 'きょうむらさき' }
       it { is_expected.to eq 'kyomurasaki' }
     end
 
     context 'given "uu"' do
-      subject { described_class.nihon('りきゅうちゃ') }
+      let(:text) { 'りきゅうちゃ' }
       it { is_expected.to eq 'rikyutya' }
     end
 
