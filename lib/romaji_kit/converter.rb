@@ -1,6 +1,8 @@
 # coding: utf-8
 
 module RomajiKit
+
+  # Class to convert kana to romaji
   class Converter
     MONOGRAPHS = {
       あ: 'a', い: 'i', う: 'u', え: 'e', お: 'o',
