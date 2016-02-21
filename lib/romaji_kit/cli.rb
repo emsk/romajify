@@ -24,6 +24,15 @@ module RomajiKit
       puts Converter.nihon(text, options[:upcase])
     end
 
+    desc 'kunrei KANA', 'Convert kana to Kunrei-shiki romaji'
+
+    # Convert kana to Kunrei-shiki romaji
+    #
+    # @param text [String] Kana text
+    def kunrei(text)
+      puts Converter.kunrei(text, options[:upcase])
+    end
+
     desc '-v, --version', 'Print the version'
     map %w(-v --version) => :version
 

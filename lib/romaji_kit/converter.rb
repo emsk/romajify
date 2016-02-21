@@ -119,6 +119,25 @@ module RomajiKit
       ヂャ: 'dya', ヂュ: 'dyu', ヂョ: 'dyo'
     }
 
+    KUNREI_MONOGRAPHS = {
+      し: 'si', ち: 'ti', つ: 'tu', ふ: 'hu', じ: 'zi', ぢ: 'zi',
+      シ: 'si', チ: 'ti', ツ: 'tu', フ: 'hu', ジ: 'zi', ヂ: 'zi',
+    }
+
+    KUNREI_DIGRAPHS = {
+      しゃ: 'sya', しゅ: 'syu', しょ: 'syo',
+      シャ: 'sya', シュ: 'syu', ショ: 'syo',
+
+      じゃ: 'zya', じゅ: 'zyu', じょ: 'zyo',
+      ジャ: 'zya', ジュ: 'zyu', ジョ: 'zyo',
+
+      ちゃ: 'tya', ちゅ: 'tyu', ちょ: 'tyo',
+      チャ: 'tya', チュ: 'tyu', チョ: 'tyo',
+
+      ぢゃ: 'zya', ぢゅ: 'zyu', ぢょ: 'zyo',
+      ヂャ: 'zya', ヂュ: 'zyu', ヂョ: 'zyo'
+    }
+
     # Convert kana to Hepburn romaji
     #
     # @param text [String] Kana text
@@ -157,6 +176,29 @@ module RomajiKit
 
       result_text = romanize(result_text, DIGRAPHS.merge(NIHON_DIGRAPHS))
       result_text = romanize(result_text, MONOGRAPHS.merge(NIHON_MONOGRAPHS))
+
+      # Double consonants: 促音
+      result_text.gsub!(/[っッ](.)/, '\1\1')
+
+      # Long vowels: 長音
+      result_text.gsub!(/ou|oo/, 'o')
+      result_text.gsub!(/uu/, 'u')
+
+      result_text.upcase! if is_upcase
+
+      result_text
+    end
+
+    # Convert kana to Kunrei-shiki romaji
+    #
+    # @param text [String] Kana text
+    # @param is_upcase [Boolean] Whether to return upper case
+    # @return [String] Romaji text
+    def self.kunrei(text, is_upcase = false)
+      result_text = text.dup
+
+      result_text = romanize(result_text, DIGRAPHS.merge(KUNREI_DIGRAPHS))
+      result_text = romanize(result_text, MONOGRAPHS.merge(KUNREI_MONOGRAPHS))
 
       # Double consonants: 促音
       result_text.gsub!(/[っッ](.)/, '\1\1')
