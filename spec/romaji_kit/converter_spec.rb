@@ -525,12 +525,12 @@ describe RomajiKit::Converter do
       it { is_expected.to eq 'ikkonzome' }
     end
 
-    context 'given "っ" before "c"' do
+    context 'given "っ" before "t"' do
       let(:text) { 'まっちゃ' }
       it { is_expected.to eq 'mattya' }
     end
 
-    context 'given "ッ" before "c"' do
+    context 'given "ッ" before "t"' do
       let(:text) { 'マッチャ' }
       it { is_expected.to eq 'mattya' }
     end
