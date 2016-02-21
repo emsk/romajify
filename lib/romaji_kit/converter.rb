@@ -123,6 +123,7 @@ module RomajiKit
     #
     # @param text [String] Kana text
     # @param is_upcase [Boolean] Whether to return upper case
+    # @return [String] Romaji text
     def self.hepburnize(text, is_upcase = false)
       result_text = text.dup
 
@@ -150,6 +151,7 @@ module RomajiKit
     #
     # @param text [String] Kana text
     # @param is_upcase [Boolean] Whether to return upper case
+    # @return [String] Romaji text
     def self.nihon(text, is_upcase = false)
       result_text = text.dup
 
