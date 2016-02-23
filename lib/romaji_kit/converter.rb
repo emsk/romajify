@@ -121,7 +121,7 @@ module RomajiKit
 
     KUNREI_MONOGRAPHS = {
       し: 'si', ち: 'ti', つ: 'tu', ふ: 'hu', じ: 'zi', ぢ: 'zi',
-      シ: 'si', チ: 'ti', ツ: 'tu', フ: 'hu', ジ: 'zi', ヂ: 'zi',
+      シ: 'si', チ: 'ti', ツ: 'tu', フ: 'hu', ジ: 'zi', ヂ: 'zi'
     }
 
     KUNREI_DIGRAPHS = {
