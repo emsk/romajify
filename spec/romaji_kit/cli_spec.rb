@@ -12,7 +12,7 @@ describe RomajiKit::CLI do
     end
 
     context 'given --upcase option' do
-      subject { -> { cli.invoke(:hepburnize, ['かな'], { upcase: true }) } }
+      subject { -> { cli.invoke(:hepburnize, ['かな'], upcase: true) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end
@@ -24,7 +24,7 @@ describe RomajiKit::CLI do
     end
 
     context 'given --upcase option' do
-      subject { -> { cli.invoke(:nihon, ['かな'], { upcase: true }) } }
+      subject { -> { cli.invoke(:nihon, ['かな'], upcase: true) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end
@@ -36,7 +36,7 @@ describe RomajiKit::CLI do
     end
 
     context 'given --upcase option' do
-      subject { -> { cli.invoke(:kunrei, ['かな'], { upcase: true }) } }
+      subject { -> { cli.invoke(:kunrei, ['かな'], upcase: true) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end
