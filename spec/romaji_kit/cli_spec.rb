@@ -7,42 +7,42 @@ describe RomajiKit::CLI do
 
   describe '#hepburnize' do
     context 'given no options' do
-      subject { lambda { cli.hepburnize('かな') } }
+      subject { -> { cli.hepburnize('かな') } }
       it { is_expected.to output("kana\n").to_stdout }
     end
 
     context 'given --upcase option' do
-      subject { lambda { cli.invoke(:hepburnize, ['かな'], { upcase: true }) } }
+      subject { -> { cli.invoke(:hepburnize, ['かな'], { upcase: true }) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end
 
   describe '#nihon' do
     context 'given no options' do
-      subject { lambda { cli.nihon('かな') } }
+      subject { -> { cli.nihon('かな') } }
       it { is_expected.to output("kana\n").to_stdout }
     end
 
     context 'given --upcase option' do
-      subject { lambda { cli.invoke(:nihon, ['かな'], { upcase: true }) } }
+      subject { -> { cli.invoke(:nihon, ['かな'], { upcase: true }) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end
 
   describe '#kunrei' do
     context 'given no options' do
-      subject { lambda { cli.kunrei('かな') } }
+      subject { -> { cli.kunrei('かな') } }
       it { is_expected.to output("kana\n").to_stdout }
     end
 
     context 'given --upcase option' do
-      subject { lambda { cli.invoke(:kunrei, ['かな'], { upcase: true }) } }
+      subject { -> { cli.invoke(:kunrei, ['かな'], { upcase: true }) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end
 
   describe '#version' do
-    subject { lambda { cli.version } }
+    subject { -> { cli.version } }
     it { is_expected.to output("romaji_kit #{RomajiKit::VERSION}\n").to_stdout }
   end
 end
