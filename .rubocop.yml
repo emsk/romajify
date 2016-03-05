@@ -1,0 +1,17 @@
+Metrics/LineLength:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/UnneededPercentQ:
+  Enabled: false
