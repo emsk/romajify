@@ -1,5 +1,6 @@
 require 'thor'
 
+# Japanese romanization library
 module RomajiKit
 
   # Command-line interface of {RomajiKit}
