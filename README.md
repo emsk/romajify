@@ -15,7 +15,26 @@ WIP
 
 ## Usage
 
-WIP
+#### Hepburn Romaji
+
+```sh
+$ romaji_kit hepburnize まちづくり
+# => machizukuri
+```
+
+#### Kunrei-shiki Romaji
+
+```sh
+$ romaji_kit kunrei まちづくり
+# => matizukuri
+```
+
+#### Nihon-shiki Romaji
+
+```sh
+$ romaji_kit nihon まちづくり
+# => matidukuri
+```
 
 ## Development
 
