@@ -18,7 +18,7 @@ WIP
 #### Hepburn Romaji
 
 ```sh
-$ romaji_kit hepburnize まちづくり
+$ romaji_kit hepburn まちづくり
 # => machizukuri
 ```
 

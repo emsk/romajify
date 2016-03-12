@@ -5,14 +5,14 @@ require 'spec_helper'
 describe RomajiKit::CLI do
   let(:cli) { described_class.new }
 
-  describe '#hepburnize' do
+  describe '#hepburn' do
     context 'given no options' do
-      subject { -> { cli.hepburnize('かな') } }
+      subject { -> { cli.hepburn('かな') } }
       it { is_expected.to output("kana\n").to_stdout }
     end
 
     context 'given --upcase option' do
-      subject { -> { cli.invoke(:hepburnize, ['かな'], upcase: true) } }
+      subject { -> { cli.invoke(:hepburn, ['かな'], upcase: true) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
   end

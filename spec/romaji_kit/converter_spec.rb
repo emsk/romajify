@@ -3,8 +3,8 @@
 require 'spec_helper'
 
 describe RomajiKit::Converter do
-  describe '.hepburnize' do
-    subject { described_class.hepburnize(text) }
+  describe '.hepburn' do
+    subject { described_class.hepburn(text) }
 
     context 'given "し"' do
       let(:text) { 'し' }
@@ -287,7 +287,7 @@ describe RomajiKit::Converter do
     end
 
     context 'given upcase option' do
-      subject { described_class.hepburnize('さくらいろ', true) }
+      subject { described_class.hepburn('さくらいろ', true) }
       it { is_expected.to eq 'SAKURAIRO' }
     end
   end

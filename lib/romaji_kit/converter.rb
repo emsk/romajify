@@ -143,7 +143,7 @@ module RomajiKit
     # @param text [String] Kana text
     # @param is_upcase [Boolean] Whether to return upper case
     # @return [String] Romaji text
-    def self.hepburnize(text, is_upcase = false)
+    def self.hepburn(text, is_upcase = false)
       result_text = text.dup
 
       result_text = romanize(result_text, DIGRAPHS)

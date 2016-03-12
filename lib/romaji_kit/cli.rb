@@ -7,13 +7,13 @@ module RomajiKit
   class CLI < Thor
     class_option :upcase, type: :boolean, aliases: '-u'
 
-    desc 'hepburnize KANA', 'Convert kana to Hepburn romaji'
+    desc 'hepburn KANA', 'Convert kana to Hepburn romaji'
 
     # Convert kana to Hepburn romaji
     #
     # @param text [String] Kana text
-    def hepburnize(text)
-      puts Converter.hepburnize(text, options[:upcase])
+    def hepburn(text)
+      puts Converter.hepburn(text, options[:upcase])
     end
 
     desc 'nihon KANA', 'Convert kana to Nihon-shiki romaji'
