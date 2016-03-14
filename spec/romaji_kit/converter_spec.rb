@@ -286,6 +286,11 @@ describe RomajiKit::Converter do
       it { is_expected.to eq 'rikyucha' }
     end
 
+    context 'given Windows-31J text' do
+      let(:text) { 'あ'.encode(Encoding::Windows_31J) }
+      it { is_expected.to eq 'a' }
+    end
+
     context 'given upcase option' do
       subject { described_class.hepburn('さくらいろ', true) }
       it { is_expected.to eq 'SAKURAIRO' }
@@ -575,6 +580,11 @@ describe RomajiKit::Converter do
       it { is_expected.to eq 'rikyutya' }
     end
 
+    context 'given Windows-31J text' do
+      let(:text) { 'あ'.encode(Encoding::Windows_31J) }
+      it { is_expected.to eq 'a' }
+    end
+
     context 'given upcase option' do
       subject { described_class.nihon('さくらいろ', true) }
       it { is_expected.to eq 'SAKURAIRO' }
@@ -862,6 +872,11 @@ describe RomajiKit::Converter do
     context 'given "uu"' do
       let(:text) { 'りきゅうちゃ' }
       it { is_expected.to eq 'rikyutya' }
+    end
+
+    context 'given Windows-31J text' do
+      let(:text) { 'あ'.encode(Encoding::Windows_31J) }
+      it { is_expected.to eq 'a' }
     end
 
     context 'given upcase option' do

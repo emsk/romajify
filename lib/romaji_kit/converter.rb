@@ -145,6 +145,7 @@ module RomajiKit
     # @return [String] Romaji text
     def self.hepburn(text, is_upcase = false)
       result_text = text.dup
+      result_text.encode!(Encoding::UTF_8)
 
       result_text = romanize(result_text, DIGRAPHS)
       result_text = romanize(result_text, MONOGRAPHS)
@@ -173,6 +174,7 @@ module RomajiKit
     # @return [String] Romaji text
     def self.nihon(text, is_upcase = false)
       result_text = text.dup
+      result_text.encode!(Encoding::UTF_8)
 
       result_text = romanize(result_text, DIGRAPHS.merge(NIHON_DIGRAPHS))
       result_text = romanize(result_text, MONOGRAPHS.merge(NIHON_MONOGRAPHS))
@@ -196,6 +198,7 @@ module RomajiKit
     # @return [String] Romaji text
     def self.kunrei(text, is_upcase = false)
       result_text = text.dup
+      result_text.encode!(Encoding::UTF_8)
 
       result_text = romanize(result_text, DIGRAPHS.merge(KUNREI_DIGRAPHS))
       result_text = romanize(result_text, MONOGRAPHS.merge(KUNREI_MONOGRAPHS))
