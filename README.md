@@ -15,6 +15,21 @@ WIP
 
 ## Usage
 
+#### Command Line Interface
+
+```sh
+$ romaji_kit hepburn すし
+```
+
+#### Ruby Source Code
+
+```ruby
+require 'romaji_kit/converter'
+puts RomajiKit::Converter.hepburn('すし')
+```
+
+## Supported Romaji
+
 #### Hepburn Romaji
 
 ```sh
