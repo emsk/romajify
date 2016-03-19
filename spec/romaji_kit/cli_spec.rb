@@ -15,6 +15,11 @@ describe RomajiKit::CLI do
       subject { -> { cli.invoke(:hepburn, ['かな'], upcase: true) } }
       it { is_expected.to output("KANA\n").to_stdout }
     end
+
+    context 'given --traditional option' do
+      subject { -> { cli.invoke(:hepburn, ['しんばしいろ'], traditional: true) } }
+      it { is_expected.to output("shimbashiiro\n").to_stdout }
+    end
   end
 
   describe '#nihon' do

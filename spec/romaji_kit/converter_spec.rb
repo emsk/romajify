@@ -253,17 +253,17 @@ describe RomajiKit::Converter do
 
     context 'given "n" before "b"' do
       let(:text) { 'しんばしいろ' }
-      it { is_expected.to eq 'shimbashiiro' }
+      it { is_expected.to eq 'shinbashiiro' }
     end
 
     context 'given "n" before "m"' do
       let(:text) { 'ほんむらさき' }
-      it { is_expected.to eq 'hommurasaki' }
+      it { is_expected.to eq 'honmurasaki' }
     end
 
     context 'given "n" before "p"' do
       let(:text) { 'たんぽぽいろ' }
-      it { is_expected.to eq 'tampopoiro' }
+      it { is_expected.to eq 'tanpopoiro' }
     end
 
     context 'given "oo"' do
@@ -294,6 +294,25 @@ describe RomajiKit::Converter do
     context 'given upcase option' do
       subject { described_class.hepburn('さくらいろ', true) }
       it { is_expected.to eq 'SAKURAIRO' }
+    end
+
+    context 'given traditional option' do
+      subject { described_class.hepburn(text, false, true) }
+
+      context 'given "n" before "b"' do
+        let(:text) { 'しんばしいろ' }
+        it { is_expected.to eq 'shimbashiiro' }
+      end
+
+      context 'given "n" before "m"' do
+        let(:text) { 'ほんむらさき' }
+        it { is_expected.to eq 'hommurasaki' }
+      end
+
+      context 'given "n" before "p"' do
+        let(:text) { 'たんぽぽいろ' }
+        it { is_expected.to eq 'tampopoiro' }
+      end
     end
   end
 

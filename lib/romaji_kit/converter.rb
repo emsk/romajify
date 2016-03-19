@@ -142,8 +142,9 @@ module RomajiKit
     #
     # @param text [String] Kana text
     # @param is_upcase [Boolean] Whether to return upper case
+    # @param is_traditional [Boolean] Whether to convert to traditional hepburn
     # @return [String] Romaji text
-    def self.hepburn(text, is_upcase = false)
+    def self.hepburn(text, is_upcase = false, is_traditional = false)
       result_text = text.dup
       result_text.encode!(Encoding::UTF_8)
 
@@ -155,7 +156,7 @@ module RomajiKit
       result_text.gsub!(/[っッ](.)/, '\1\1')
 
       # Syllabic n: 撥音
-      result_text.gsub!(/n([bmp])/, 'm\1')
+      result_text.gsub!(/n([bmp])/, 'm\1') if is_traditional
 
       # Long vowels: 長音
       result_text.gsub!(/oo(.+)/, 'o\1')

@@ -8,12 +8,13 @@ module RomajiKit
     class_option :upcase, type: :boolean, aliases: '-u'
 
     desc 'hepburn KANA', 'Convert kana to Hepburn romaji'
+    option :traditional, type: :boolean, aliases: '-t'
 
     # Convert kana to Hepburn romaji
     #
     # @param text [String] Kana text
     def hepburn(text)
-      puts Converter.hepburn(text, options[:upcase])
+      puts Converter.hepburn(text, options[:upcase], options[:traditional])
     end
 
     desc 'nihon KANA', 'Convert kana to Nihon-shiki romaji'
