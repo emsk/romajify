@@ -141,10 +141,11 @@ module RomajiKit
     # Convert kana to Hepburn romaji
     #
     # @param text [String] Kana text
-    # @param is_upcase [Boolean] Whether to return upper case
-    # @param is_traditional [Boolean] Whether to convert to traditional hepburn
+    # @param options [Hash] Options
+    # @option options [Boolean] :upcase Whether to return upper case
+    # @option options [Boolean] :traditional Whether to convert to traditional hepburn
     # @return [String] Romaji text
-    def self.hepburn(text, is_upcase = false, is_traditional = false)
+    def self.hepburn(text, options = {})
       result_text = text.dup
       result_text.encode!(Encoding::UTF_8)
 
@@ -156,14 +157,14 @@ module RomajiKit
       result_text.gsub!(/[っッ](.)/, '\1\1')
 
       # Syllabic n: 撥音
-      result_text.gsub!(/n([bmp])/, 'm\1') if is_traditional
+      result_text.gsub!(/n([bmp])/, 'm\1') if options[:traditional]
 
       # Long vowels: 長音
       result_text.gsub!(/oo(.+)/, 'o\1')
       result_text.gsub!(/ou/, 'o')
       result_text.gsub!(/uu/, 'u')
 
-      result_text.upcase! if is_upcase
+      result_text.upcase! if options[:upcase]
 
       result_text
     end
@@ -171,9 +172,10 @@ module RomajiKit
     # Convert kana to Nihon-shiki romaji
     #
     # @param text [String] Kana text
-    # @param is_upcase [Boolean] Whether to return upper case
+    # @param options [Hash] Options
+    # @option options [Boolean] :upcase Whether to return upper case
     # @return [String] Romaji text
-    def self.nihon(text, is_upcase = false)
+    def self.nihon(text, options = {})
       result_text = text.dup
       result_text.encode!(Encoding::UTF_8)
 
@@ -187,7 +189,7 @@ module RomajiKit
       result_text.gsub!(/ou|oo/, 'o')
       result_text.gsub!(/uu/, 'u')
 
-      result_text.upcase! if is_upcase
+      result_text.upcase! if options[:upcase]
 
       result_text
     end
@@ -195,9 +197,10 @@ module RomajiKit
     # Convert kana to Kunrei-shiki romaji
     #
     # @param text [String] Kana text
-    # @param is_upcase [Boolean] Whether to return upper case
+    # @param options [Hash] Options
+    # @option options [Boolean] :upcase Whether to return upper case
     # @return [String] Romaji text
-    def self.kunrei(text, is_upcase = false)
+    def self.kunrei(text, options = {})
       result_text = text.dup
       result_text.encode!(Encoding::UTF_8)
 
@@ -211,7 +214,7 @@ module RomajiKit
       result_text.gsub!(/ou|oo/, 'o')
       result_text.gsub!(/uu/, 'u')
 
-      result_text.upcase! if is_upcase
+      result_text.upcase! if options[:upcase]
 
       result_text
     end

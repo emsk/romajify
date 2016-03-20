@@ -292,12 +292,12 @@ describe RomajiKit::Converter do
     end
 
     context 'given upcase option' do
-      subject { described_class.hepburn('さくらいろ', true) }
+      subject { described_class.hepburn('さくらいろ', upcase: true) }
       it { is_expected.to eq 'SAKURAIRO' }
     end
 
     context 'given traditional option' do
-      subject { described_class.hepburn(text, false, true) }
+      subject { described_class.hepburn(text, traditional: true) }
 
       context 'given "n" before "b"' do
         let(:text) { 'しんばしいろ' }
@@ -605,7 +605,7 @@ describe RomajiKit::Converter do
     end
 
     context 'given upcase option' do
-      subject { described_class.nihon('さくらいろ', true) }
+      subject { described_class.nihon('さくらいろ', upcase: true) }
       it { is_expected.to eq 'SAKURAIRO' }
     end
   end
@@ -899,7 +899,7 @@ describe RomajiKit::Converter do
     end
 
     context 'given upcase option' do
-      subject { described_class.nihon('さくらいろ', true) }
+      subject { described_class.nihon('さくらいろ', upcase: true) }
       it { is_expected.to eq 'SAKURAIRO' }
     end
   end

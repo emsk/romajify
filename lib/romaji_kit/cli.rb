@@ -14,7 +14,7 @@ module RomajiKit
     #
     # @param text [String] Kana text
     def hepburn(text)
-      puts Converter.hepburn(text, options[:upcase], options[:traditional])
+      puts Converter.hepburn(text, options)
     end
 
     desc 'nihon KANA', 'Convert kana to Nihon-shiki romaji'
@@ -23,7 +23,7 @@ module RomajiKit
     #
     # @param text [String] Kana text
     def nihon(text)
-      puts Converter.nihon(text, options[:upcase])
+      puts Converter.nihon(text, options)
     end
 
     desc 'kunrei KANA', 'Convert kana to Kunrei-shiki romaji'
@@ -32,7 +32,7 @@ module RomajiKit
     #
     # @param text [String] Kana text
     def kunrei(text)
-      puts Converter.kunrei(text, options[:upcase])
+      puts Converter.kunrei(text, options)
     end
 
     desc '-v, --version', 'Print the version'
