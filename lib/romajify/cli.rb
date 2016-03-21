@@ -1,4 +1,5 @@
 require 'thor'
+require 'romajify/converter'
 
 # Japanese romanization library
 module Romajify
