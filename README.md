@@ -48,9 +48,18 @@ puts Romajify::Converter.hepburn('すし')
 
 #### Hepburn Romaji
 
+Modified Hepburn:
+
 ```sh
-$ romajify hepburn まちづくり
-# => machizukuri
+$ romajify hepburn しんばし
+# => shinbashi
+```
+
+Traditional Hepburn:
+
+```sh
+$ romajify hepburn --traditional しんばし
+# => shimbashi
 ```
 
 #### Nihon-shiki Romaji
