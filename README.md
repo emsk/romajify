@@ -11,7 +11,23 @@ Japanese romanization library for Ruby.
 
 ## Installation
 
-WIP
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'romajify'
+```
+
+And then execute:
+
+```sh
+$ bundle
+```
+
+Or install it yourself as:
+
+```sh
+$ gem install romajify
+```
 
 ## Usage
 
@@ -51,13 +67,13 @@ $ romajify kunrei まちづくり
 # => matizukuri
 ```
 
-## Development
-
-WIP
-
 ## Contributing
 
-WIP
+1. Fork it ( https://github.com/emsk/romajify/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 
