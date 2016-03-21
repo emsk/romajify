@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe RomajiKit::CLI do
+describe Romajify::CLI do
   let(:cli) { described_class.new }
 
   describe '#hepburn' do
@@ -48,6 +48,6 @@ describe RomajiKit::CLI do
 
   describe '#version' do
     subject { -> { cli.version } }
-    it { is_expected.to output("romaji_kit #{RomajiKit::VERSION}\n").to_stdout }
+    it { is_expected.to output("romajify #{Romajify::VERSION}\n").to_stdout }
   end
 end

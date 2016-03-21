@@ -1,9 +1,9 @@
 require 'thor'
 
 # Japanese romanization library
-module RomajiKit
+module Romajify
 
-  # Command-line interface of {RomajiKit}
+  # Command-line interface of {Romajify}
   class CLI < Thor
     class_option :upcase, type: :boolean, aliases: '-u'
 
@@ -40,7 +40,7 @@ module RomajiKit
 
     # Print the version
     def version
-      puts "romaji_kit #{RomajiKit::VERSION}"
+      puts "romajify #{Romajify::VERSION}"
     end
   end
 

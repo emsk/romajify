@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe RomajiKit::Converter do
+describe Romajify::Converter do
   describe '.hepburn' do
     subject { described_class.hepburn(text) }
 

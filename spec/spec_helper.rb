@@ -11,4 +11,4 @@ SimpleCov.start do
 end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'romaji_kit'
+require 'romajify'

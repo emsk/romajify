@@ -1,6 +1,6 @@
 # coding: utf-8
 
-module RomajiKit
+module Romajify
 
   # Class to convert kana to romaji
   class Converter

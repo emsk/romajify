@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RomajiKit do
+describe Romajify do
   describe 'VERSION' do
     subject { described_class::VERSION }
     it { is_expected.not_to be_nil }

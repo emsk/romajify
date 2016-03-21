@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'romaji_kit/version'
+require 'romajify/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'romaji_kit'
-  spec.version       = RomajiKit::VERSION
+  spec.name          = 'romajify'
+  spec.version       = Romajify::VERSION
   spec.authors       = ['emsk']
   spec.email         = ['emsk1987@gmail.com']
 
   spec.summary       = %q{Japanese romanization library for Ruby.}
   spec.description   = %q{A Ruby library for converting Japanese Kana to Roman alphabet.}
-  spec.homepage      = 'https://github.com/emsk/romaji_kit'
+  spec.homepage      = 'https://github.com/emsk/romajify'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
