@@ -37,18 +37,18 @@ $ romaji_kit hepburn まちづくり
 # => machizukuri
 ```
 
-#### Kunrei-shiki Romaji
-
-```sh
-$ romaji_kit kunrei まちづくり
-# => matizukuri
-```
-
 #### Nihon-shiki Romaji
 
 ```sh
 $ romaji_kit nihon まちづくり
 # => matidukuri
+```
+
+#### Kunrei-shiki Romaji
+
+```sh
+$ romaji_kit kunrei まちづくり
+# => matizukuri
 ```
 
 ## Development
