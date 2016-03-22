@@ -1,5 +1,6 @@
 # Romajify
 
+[![Gem Version](https://badge.fury.io/rb/romajify.svg)](https://badge.fury.io/rb/romajify)
 [![Build Status](https://travis-ci.org/emsk/romajify.svg?branch=master)](https://travis-ci.org/emsk/romajify)
 [![Coverage Status](https://coveralls.io/repos/github/emsk/romajify/badge.svg?branch=master)](https://coveralls.io/github/emsk/romajify)
 [![Code Climate](https://codeclimate.com/github/emsk/romajify/badges/gpa.svg)](https://codeclimate.com/github/emsk/romajify)
