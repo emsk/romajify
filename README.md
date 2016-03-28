@@ -10,6 +10,8 @@
 
 Japanese romanization library for Ruby.
 
+http://qiita.com/emsk/items/3e24628c220c825da709 (Japanese)
+
 ## Installation
 
 Add this line to your application's Gemfile:
