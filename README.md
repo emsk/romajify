@@ -79,6 +79,13 @@ $ romajify kunrei まちづくり
 # => matizukuri
 ```
 
+## Command Options
+
+| Option | Description | Default |
+| :----- | :---------- | :------ |
+| `-u/--upcase` | Whether to return upper case. | `false` - Lower case |
+| `-t/--traditional` | Whether to convert to traditional hepburn. This is the option only for `hepburn` command. | `false` - Modified hepburn |
+
 ## Contributing
 
 1. Fork it ( https://github.com/emsk/romajify/fork )
