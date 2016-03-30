@@ -86,6 +86,10 @@ $ romajify kunrei まちづくり
 | `-u/--upcase` | Whether to return upper case. | `false` - Lower case |
 | `-t/--traditional` | Whether to convert to traditional hepburn. This is the option only for `hepburn` command. | `false` - Modified hepburn |
 
+## Documentation
+
+http://www.rubydoc.info/gems/romajify
+
 ## Contributing
 
 1. Fork it ( https://github.com/emsk/romajify/fork )
