@@ -5,138 +5,138 @@ module Romajify
   # Class to convert kana to romaji
   class Converter
     MONOGRAPHS = {
-      あ: 'a', い: 'i', う: 'u', え: 'e', お: 'o',
-      ア: 'a', イ: 'i', ウ: 'u', エ: 'e', オ: 'o',
+      あ: :a, い: :i, う: :u, え: :e, お: :o,
+      ア: :a, イ: :i, ウ: :u, エ: :e, オ: :o,
 
-      か: 'ka', き: 'ki', く: 'ku', け: 'ke', こ: 'ko',
-      カ: 'ka', キ: 'ki', ク: 'ku', ケ: 'ke', コ: 'ko',
+      か: :ka, き: :ki, く: :ku, け: :ke, こ: :ko,
+      カ: :ka, キ: :ki, ク: :ku, ケ: :ke, コ: :ko,
 
-      が: 'ga', ぎ: 'gi', ぐ: 'gu', げ: 'ge', ご: 'go',
-      ガ: 'ga', ギ: 'gi', グ: 'gu', ゲ: 'ge', ゴ: 'go',
+      が: :ga, ぎ: :gi, ぐ: :gu, げ: :ge, ご: :go,
+      ガ: :ga, ギ: :gi, グ: :gu, ゲ: :ge, ゴ: :go,
 
-      さ: 'sa', し: 'shi', す: 'su', せ: 'se', そ: 'so',
-      サ: 'sa', シ: 'shi', ス: 'su', セ: 'se', ソ: 'so',
+      さ: :sa, し: :shi, す: :su, せ: :se, そ: :so,
+      サ: :sa, シ: :shi, ス: :su, セ: :se, ソ: :so,
 
-      ざ: 'za', じ: 'ji', ず: 'zu', ぜ: 'ze', ぞ: 'zo',
-      ザ: 'za', ジ: 'ji', ズ: 'zu', ゼ: 'ze', ゾ: 'zo',
+      ざ: :za, じ: :ji, ず: :zu, ぜ: :ze, ぞ: :zo,
+      ザ: :za, ジ: :ji, ズ: :zu, ゼ: :ze, ゾ: :zo,
 
-      た: 'ta', ち: 'chi', つ: 'tsu', て: 'te', と: 'to',
-      タ: 'ta', チ: 'chi', ツ: 'tsu', テ: 'te', ト: 'to',
+      た: :ta, ち: :chi, つ: :tsu, て: :te, と: :to,
+      タ: :ta, チ: :chi, ツ: :tsu, テ: :te, ト: :to,
 
-      だ: 'da', ぢ: 'ji', づ: 'zu', で: 'de', ど: 'do',
-      ダ: 'da', ヂ: 'ji', ヅ: 'zu', デ: 'de', ド: 'do',
+      だ: :da, ぢ: :ji, づ: :zu, で: :de, ど: :do,
+      ダ: :da, ヂ: :ji, ヅ: :zu, デ: :de, ド: :do,
 
-      な: 'na', に: 'ni', ぬ: 'nu', ね: 'ne', の: 'no',
-      ナ: 'na', ニ: 'ni', ヌ: 'nu', ネ: 'ne', ノ: 'no',
+      な: :na, に: :ni, ぬ: :nu, ね: :ne, の: :no,
+      ナ: :na, ニ: :ni, ヌ: :nu, ネ: :ne, ノ: :no,
 
-      は: 'ha', ひ: 'hi', ふ: 'fu', へ: 'he', ほ: 'ho',
-      ハ: 'ha', ヒ: 'hi', フ: 'fu', ヘ: 'he', ホ: 'ho',
+      は: :ha, ひ: :hi, ふ: :fu, へ: :he, ほ: :ho,
+      ハ: :ha, ヒ: :hi, フ: :fu, ヘ: :he, ホ: :ho,
 
-      ば: 'ba', び: 'bi', ぶ: 'bu', べ: 'be', ぼ: 'bo',
-      バ: 'ba', ビ: 'bi', ブ: 'bu', ベ: 'be', ボ: 'bo',
+      ば: :ba, び: :bi, ぶ: :bu, べ: :be, ぼ: :bo,
+      バ: :ba, ビ: :bi, ブ: :bu, ベ: :be, ボ: :bo,
 
-      ぱ: 'pa', ぴ: 'pi', ぷ: 'pu', ぺ: 'pe', ぽ: 'po',
-      パ: 'pa', ピ: 'pi', プ: 'pu', ペ: 'pe', ポ: 'po',
+      ぱ: :pa, ぴ: :pi, ぷ: :pu, ぺ: :pe, ぽ: :po,
+      パ: :pa, ピ: :pi, プ: :pu, ペ: :pe, ポ: :po,
 
-      ま: 'ma', み: 'mi', む: 'mu', め: 'me', も: 'mo',
-      マ: 'ma', ミ: 'mi', ム: 'mu', メ: 'me', モ: 'mo',
+      ま: :ma, み: :mi, む: :mu, め: :me, も: :mo,
+      マ: :ma, ミ: :mi, ム: :mu, メ: :me, モ: :mo,
 
-      や: 'ya', ゆ: 'yu', よ: 'yo',
-      ヤ: 'ya', ユ: 'yu', ヨ: 'yo',
+      や: :ya, ゆ: :yu, よ: :yo,
+      ヤ: :ya, ユ: :yu, ヨ: :yo,
 
-      ら: 'ra', り: 'ri', る: 'ru', れ: 're', ろ: 'ro',
-      ラ: 'ra', リ: 'ri', ル: 'ru', レ: 're', ロ: 'ro',
+      ら: :ra, り: :ri, る: :ru, れ: :re, ろ: :ro,
+      ラ: :ra, リ: :ri, ル: :ru, レ: :re, ロ: :ro,
 
-      わ: 'wa', ゐ: 'i', ゑ: 'e', を: 'o', ん: 'n',
-      ワ: 'wa', ヰ: 'i', ヱ: 'e', ヲ: 'o', ン: 'n',
+      わ: :wa, ゐ: :i, ゑ: :e, を: :o, ん: :n,
+      ワ: :wa, ヰ: :i, ヱ: :e, ヲ: :o, ン: :n,
 
-      ぁ: 'a', ぃ: 'i', ぅ: 'u', ぇ: 'e', ぉ: 'o',
-      ァ: 'a', ィ: 'i', ゥ: 'u', ェ: 'e', ォ: 'o',
+      ぁ: :a, ぃ: :i, ぅ: :u, ぇ: :e, ぉ: :o,
+      ァ: :a, ィ: :i, ゥ: :u, ェ: :e, ォ: :o,
 
-      ゃ: 'ya', ゅ: 'yu', ょ: 'yo',
-      ャ: 'ya', ュ: 'yu', ョ: 'yo',
+      ゃ: :ya, ゅ: :yu, ょ: :yo,
+      ャ: :ya, ュ: :yu, ョ: :yo,
 
-      ゔ: 'bu', ヴ: 'bu', ー: '', ＿: '_'
-    }
+      ゔ: :bu, ヴ: :bu, ー: :'', ＿: :_
+    }.freeze
 
     DIGRAPHS = {
-      きゃ: 'kya', きゅ: 'kyu', きょ: 'kyo',
-      キャ: 'kya', キュ: 'kyu', キョ: 'kyo',
+      きゃ: :kya, きゅ: :kyu, きょ: :kyo,
+      キャ: :kya, キュ: :kyu, キョ: :kyo,
 
-      ぎゃ: 'gya', ぎゅ: 'gyu', ぎょ: 'gyo',
-      ギャ: 'gya', ギュ: 'gyu', ギョ: 'gyo',
+      ぎゃ: :gya, ぎゅ: :gyu, ぎょ: :gyo,
+      ギャ: :gya, ギュ: :gyu, ギョ: :gyo,
 
-      しゃ: 'sha', しゅ: 'shu', しょ: 'sho',
-      シャ: 'sha', シュ: 'shu', ショ: 'sho',
+      しゃ: :sha, しゅ: :shu, しょ: :sho,
+      シャ: :sha, シュ: :shu, ショ: :sho,
 
-      じゃ: 'ja', じゅ: 'ju', じょ: 'jo',
-      ジャ: 'ja', ジュ: 'ju', ジョ: 'jo',
+      じゃ: :ja, じゅ: :ju, じょ: :jo,
+      ジャ: :ja, ジュ: :ju, ジョ: :jo,
 
-      ちゃ: 'cha', ちゅ: 'chu', ちょ: 'cho',
-      チャ: 'cha', チュ: 'chu', チョ: 'cho',
+      ちゃ: :cha, ちゅ: :chu, ちょ: :cho,
+      チャ: :cha, チュ: :chu, チョ: :cho,
 
-      ぢゃ: 'ja', ぢゅ: 'ju', ぢょ: 'jo',
-      ヂャ: 'ja', ヂュ: 'ju', ヂョ: 'jo',
+      ぢゃ: :ja, ぢゅ: :ju, ぢょ: :jo,
+      ヂャ: :ja, ヂュ: :ju, ヂョ: :jo,
 
-      にゃ: 'nya', にゅ: 'nyu', にょ: 'nyo',
-      ニャ: 'nya', ニュ: 'nyu', ニョ: 'nyo',
+      にゃ: :nya, にゅ: :nyu, にょ: :nyo,
+      ニャ: :nya, ニュ: :nyu, ニョ: :nyo,
 
-      ひゃ: 'hya', ひゅ: 'hyu', ひょ: 'hyo',
-      ヒャ: 'hya', ヒュ: 'hyu', ヒョ: 'hyo',
+      ひゃ: :hya, ひゅ: :hyu, ひょ: :hyo,
+      ヒャ: :hya, ヒュ: :hyu, ヒョ: :hyo,
 
-      びゃ: 'bya', びゅ: 'byu', びょ: 'byo',
-      ビャ: 'bya', ビュ: 'byu', ビョ: 'byo',
+      びゃ: :bya, びゅ: :byu, びょ: :byo,
+      ビャ: :bya, ビュ: :byu, ビョ: :byo,
 
-      ぴゃ: 'pya', ぴゅ: 'pyu', ぴょ: 'pyo',
-      ピャ: 'pya', ピュ: 'pyu', ピョ: 'pyo',
+      ぴゃ: :pya, ぴゅ: :pyu, ぴょ: :pyo,
+      ピャ: :pya, ピュ: :pyu, ピョ: :pyo,
 
-      みゃ: 'mya', みゅ: 'myu', みょ: 'myo',
-      ミャ: 'mya', ミュ: 'myu', ミョ: 'myo',
+      みゃ: :mya, みゅ: :myu, みょ: :myo,
+      ミャ: :mya, ミュ: :myu, ミョ: :myo,
 
-      りゃ: 'rya', りゅ: 'ryu', りょ: 'ryo',
-      リャ: 'rya', リュ: 'ryu', リョ: 'ryo'
-    }
+      りゃ: :rya, りゅ: :ryu, りょ: :ryo,
+      リャ: :rya, リュ: :ryu, リョ: :ryo
+    }.freeze
 
     NIHON_MONOGRAPHS = {
-      し: 'si', ち: 'ti', つ: 'tu', ふ: 'hu', じ: 'zi', ぢ: 'di', づ: 'du',
-      シ: 'si', チ: 'ti', ツ: 'tu', フ: 'hu', ジ: 'zi', ヂ: 'di', ヅ: 'du',
+      し: :si, ち: :ti, つ: :tu, ふ: :hu, じ: :zi, ぢ: :di, づ: :du,
+      シ: :si, チ: :ti, ツ: :tu, フ: :hu, ジ: :zi, ヂ: :di, ヅ: :du,
 
-      ゐ: 'wi', ゑ: 'we', を: 'wo',
-      ヰ: 'wi', ヱ: 'we', ヲ: 'wo'
-    }
+      ゐ: :wi, ゑ: :we, を: :wo,
+      ヰ: :wi, ヱ: :we, ヲ: :wo
+    }.freeze
 
     NIHON_DIGRAPHS = {
-      しゃ: 'sya', しゅ: 'syu', しょ: 'syo',
-      シャ: 'sya', シュ: 'syu', ショ: 'syo',
+      しゃ: :sya, しゅ: :syu, しょ: :syo,
+      シャ: :sya, シュ: :syu, ショ: :syo,
 
-      じゃ: 'zya', じゅ: 'zyu', じょ: 'zyo',
-      ジャ: 'zya', ジュ: 'zyu', ジョ: 'zyo',
+      じゃ: :zya, じゅ: :zyu, じょ: :zyo,
+      ジャ: :zya, ジュ: :zyu, ジョ: :zyo,
 
-      ちゃ: 'tya', ちゅ: 'tyu', ちょ: 'tyo',
-      チャ: 'tya', チュ: 'tyu', チョ: 'tyo',
+      ちゃ: :tya, ちゅ: :tyu, ちょ: :tyo,
+      チャ: :tya, チュ: :tyu, チョ: :tyo,
 
-      ぢゃ: 'dya', ぢゅ: 'dyu', ぢょ: 'dyo',
-      ヂャ: 'dya', ヂュ: 'dyu', ヂョ: 'dyo'
-    }
+      ぢゃ: :dya, ぢゅ: :dyu, ぢょ: :dyo,
+      ヂャ: :dya, ヂュ: :dyu, ヂョ: :dyo
+    }.freeze
 
     KUNREI_MONOGRAPHS = {
-      し: 'si', ち: 'ti', つ: 'tu', ふ: 'hu', じ: 'zi', ぢ: 'zi',
-      シ: 'si', チ: 'ti', ツ: 'tu', フ: 'hu', ジ: 'zi', ヂ: 'zi'
-    }
+      し: :si, ち: :ti, つ: :tu, ふ: :hu, じ: :zi, ぢ: :zi,
+      シ: :si, チ: :ti, ツ: :tu, フ: :hu, ジ: :zi, ヂ: :zi
+    }.freeze
 
     KUNREI_DIGRAPHS = {
-      しゃ: 'sya', しゅ: 'syu', しょ: 'syo',
-      シャ: 'sya', シュ: 'syu', ショ: 'syo',
+      しゃ: :sya, しゅ: :syu, しょ: :syo,
+      シャ: :sya, シュ: :syu, ショ: :syo,
 
-      じゃ: 'zya', じゅ: 'zyu', じょ: 'zyo',
-      ジャ: 'zya', ジュ: 'zyu', ジョ: 'zyo',
+      じゃ: :zya, じゅ: :zyu, じょ: :zyo,
+      ジャ: :zya, ジュ: :zyu, ジョ: :zyo,
 
-      ちゃ: 'tya', ちゅ: 'tyu', ちょ: 'tyo',
-      チャ: 'tya', チュ: 'tyu', チョ: 'tyo',
+      ちゃ: :tya, ちゅ: :tyu, ちょ: :tyo,
+      チャ: :tya, チュ: :tyu, チョ: :tyo,
 
-      ぢゃ: 'zya', ぢゅ: 'zyu', ぢょ: 'zyo',
-      ヂャ: 'zya', ヂュ: 'zyu', ヂョ: 'zyo'
-    }
+      ぢゃ: :zya, ぢゅ: :zyu, ぢょ: :zyo,
+      ヂャ: :zya, ヂュ: :zyu, ヂョ: :zyo
+    }.freeze
 
     # Convert kana to Hepburn romaji
     #
@@ -223,7 +223,7 @@ module Romajify
       result_text = text.dup
 
       chars.each do |kana, romaji|
-        result_text.gsub!(/#{kana}/, romaji)
+        result_text.gsub!(/#{kana}/, romaji.to_s)
       end
 
       result_text
