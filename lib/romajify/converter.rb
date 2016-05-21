@@ -146,8 +146,7 @@ module Romajify
     # @option options [Boolean] :traditional Whether to convert to traditional hepburn
     # @return [String] Romaji text
     def self.hepburn(text, options = {})
-      result_text = text.dup
-      result_text.encode!(Encoding::UTF_8)
+      result_text = to_utf8(text)
 
       result_text = romanize(result_text, DIGRAPHS)
       result_text = romanize(result_text, MONOGRAPHS)
@@ -176,8 +175,7 @@ module Romajify
     # @option options [Boolean] :upcase Whether to return upper case
     # @return [String] Romaji text
     def self.nihon(text, options = {})
-      result_text = text.dup
-      result_text.encode!(Encoding::UTF_8)
+      result_text = to_utf8(text)
 
       result_text = romanize(result_text, DIGRAPHS.merge(NIHON_DIGRAPHS))
       result_text = romanize(result_text, MONOGRAPHS.merge(NIHON_MONOGRAPHS))
@@ -201,8 +199,7 @@ module Romajify
     # @option options [Boolean] :upcase Whether to return upper case
     # @return [String] Romaji text
     def self.kunrei(text, options = {})
-      result_text = text.dup
-      result_text.encode!(Encoding::UTF_8)
+      result_text = to_utf8(text)
 
       result_text = romanize(result_text, DIGRAPHS.merge(KUNREI_DIGRAPHS))
       result_text = romanize(result_text, MONOGRAPHS.merge(KUNREI_MONOGRAPHS))
@@ -219,6 +216,10 @@ module Romajify
       result_text
     end
 
+    def self.to_utf8(text)
+      text.encode(Encoding::UTF_8)
+    end
+
     def self.romanize(text, chars)
       result_text = text.dup
 
@@ -229,6 +230,6 @@ module Romajify
       result_text
     end
 
-    private_class_method :romanize
+    private_class_method :to_utf8, :romanize
   end
 end
