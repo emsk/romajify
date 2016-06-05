@@ -1,7 +1,5 @@
 # coding: utf-8
 
-require 'spec_helper'
-
 describe Romajify::CLI do
   let(:cli) { described_class.new }
 

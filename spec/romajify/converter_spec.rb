@@ -1,7 +1,5 @@
 # coding: utf-8
 
-require 'spec_helper'
-
 describe Romajify::Converter do
   describe '.hepburn' do
     subject { described_class.hepburn(text) }

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Romajify do
   describe 'VERSION' do
     subject { described_class::VERSION }
