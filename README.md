@@ -110,6 +110,10 @@ http://www.rubydoc.info/gems/romajify
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+## Related
+
+* [romajic](https://github.com/emsk/romajic) - Automatic romaji spelling checker for programmer
+
 ## License
 
 [MIT](LICENSE.txt)
