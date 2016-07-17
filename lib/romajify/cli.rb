@@ -44,6 +44,4 @@ module Romajify
       puts "romajify #{Romajify::VERSION}"
     end
   end
-
-  CLI.start
 end
