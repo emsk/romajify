@@ -112,6 +112,7 @@ http://www.rubydoc.info/gems/romajify
 
 ## Related
 
+* [go-romajify](https://github.com/emsk/go-romajify) - Pure Go implementation of the romajify
 * [romajic](https://github.com/emsk/romajic) - Automatic romaji spelling checker for programmer
 
 ## License
