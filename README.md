@@ -14,7 +14,7 @@ http://qiita.com/emsk/items/3e24628c220c825da709 (Japanese)
 
 ## Prerequisite
 
-You have to install Ruby 1.9.3 or higher.
+You have to install Ruby 2.0.0 or higher.
 
 ## Installation
 
@@ -96,7 +96,6 @@ http://www.rubydoc.info/gems/romajify
 
 ## Supported Ruby Versions
 
-* Ruby 1.9.3
 * Ruby 2.0.0
 * Ruby 2.1
 * Ruby 2.2
