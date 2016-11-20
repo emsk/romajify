@@ -59,28 +59,28 @@ Modified Hepburn:
 
 ```sh
 $ romajify hepburn しんばし
-# => shinbashi
+shinbashi
 ```
 
 Traditional Hepburn:
 
 ```sh
 $ romajify hepburn --traditional しんばし
-# => shimbashi
+shimbashi
 ```
 
 #### Nihon-shiki Romaji
 
 ```sh
 $ romajify nihon まちづくり
-# => matidukuri
+matidukuri
 ```
 
 #### Kunrei-shiki Romaji
 
 ```sh
 $ romajify kunrei まちづくり
-# => matizukuri
+matizukuri
 ```
 
 ## Command Options
