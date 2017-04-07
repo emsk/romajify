@@ -1,6 +1,6 @@
 # coding: utf-8
 
-describe Romajify::CLI do
+RSpec.describe Romajify::CLI do
   let(:cli) { described_class.new }
 
   describe '#hepburn' do
