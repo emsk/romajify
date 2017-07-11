@@ -1,6 +1,9 @@
 AllCops:
   DisplayCopNames: true
 
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
@@ -9,9 +12,6 @@ Metrics/LineLength:
   Enabled: false
 
 Style/AsciiComments:
-  Enabled: false
-
-Style/EmptyLinesAroundModuleBody:
   Enabled: false
 
 Style/MutableConstant:
