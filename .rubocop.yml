@@ -20,5 +20,9 @@ Style/MutableConstant:
 Style/PercentLiteralDelimiters:
   Enabled: false
 
+Style/SymbolProc:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
 Style/UnneededPercentQ:
   Enabled: false
