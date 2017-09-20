@@ -1,5 +1,3 @@
-# coding: utf-8
-
 RSpec.describe Romajify::CLI do
   let(:cli) { described_class.new }
 

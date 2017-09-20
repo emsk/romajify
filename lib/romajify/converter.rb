@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module Romajify
 
   # Class to convert kana to romaji
