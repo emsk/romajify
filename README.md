@@ -2,7 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/romajify.svg)](https://badge.fury.io/rb/romajify)
 [![Build Status](https://travis-ci.org/emsk/romajify.svg?branch=master)](https://travis-ci.org/emsk/romajify)
-[![Coverage Status](https://coveralls.io/repos/github/emsk/romajify/badge.svg?branch=master)](https://coveralls.io/github/emsk/romajify)
+[![Build status](https://ci.appveyor.com/api/projects/status/nusknxpo5o04jrjp?svg=true)](https://ci.appveyor.com/project/emsk/romajify)
+[![Coverage Status](https://coveralls.io/repos/github/emsk/romajify/badge.svg?branch=master)](https://coveralls.io/github/emsk/romajify)<br>
 [![Code Climate](https://codeclimate.com/github/emsk/romajify/badges/gpa.svg)](https://codeclimate.com/github/emsk/romajify)
 [![Dependency Status](https://gemnasium.com/emsk/romajify.svg)](https://gemnasium.com/emsk/romajify)
 [![Inline docs](http://inch-ci.org/github/emsk/romajify.svg?branch=master)](http://inch-ci.org/github/emsk/romajify)
