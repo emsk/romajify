@@ -16,6 +16,10 @@ Metrics/LineLength:
 Style/AsciiComments:
   Enabled: false
 
+Style/IfUnlessModifier:
+  Exclude:
+    - 'Gemfile'
+
 Style/MutableConstant:
   Enabled: false
 
