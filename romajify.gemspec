@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'thor', '~> 0.19'
   spec.add_development_dependency 'bundler', '~> 1.11'
-  spec.add_development_dependency 'coveralls', '~> 0.8'
+  spec.add_development_dependency 'codecov', '~> 0.1'
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'redcarpet', '~> 3.4'
   spec.add_development_dependency 'rspec', '~> 3.7'
