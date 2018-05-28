@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'redcarpet', '~> 3.4'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rubocop', '~> 0.52'
+  spec.add_development_dependency 'rubocop', '~> 0.56'
   spec.add_development_dependency 'simplecov', '~> 0.14'
   spec.add_development_dependency 'yard', '~> 0.9'
 end
