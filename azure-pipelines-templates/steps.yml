@@ -1,7 +1,7 @@
 steps:
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.5'
+    versionSpec: $(ruby_version)
 
 - script: |
     gem install bundler

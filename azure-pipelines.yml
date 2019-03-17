@@ -8,18 +8,36 @@ trigger:
 
 jobs:
 - job: Linux
+  strategy:
+    matrix:
+      ruby23:
+        ruby_version: '2.3'
+      ruby24:
+        ruby_version: '2.4'
+      ruby25:
+        ruby_version: '2.5'
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
   - template: azure-pipelines-templates/steps.yml
 
 - job: macOS
+  strategy:
+    matrix:
+      ruby26:
+        ruby_version: '2.6'
   pool:
     vmImage: 'macOS-10.13'
   steps:
   - template: azure-pipelines-templates/steps.yml
 
 - job: Windows
+  strategy:
+    matrix:
+      ruby24:
+        ruby_version: '2.4'
+      ruby25:
+        ruby_version: '2.5'
   pool:
     vmImage: 'vs2017-win2016'
   steps:
