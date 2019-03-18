@@ -19,16 +19,16 @@ jobs:
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-  - task: UseRubyVersion@0
-    inputs:
-      versionSpec: $(ruby_version)
   - template: azure-pipelines-templates/steps.yml
 
 - job: macOS
+  strategy:
+    matrix:
+      ruby26:
+        ruby_version: '2.6.1'
   pool:
     vmImage: 'macOS-10.13'
   steps:
-  - task: UseRubyVersion@0
   - template: azure-pipelines-templates/steps.yml
 
 - job: Windows
@@ -41,7 +41,4 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  - task: UseRubyVersion@0
-    inputs:
-      versionSpec: $(ruby_version)
   - template: azure-pipelines-templates/steps.yml
