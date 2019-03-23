@@ -43,6 +43,7 @@ jobs:
   - script: |
       rbenv install -l
       rbenv install $(ruby_version)
+      rbenv rehash
       ruby -v
     displayName: 'rbenv install'
   - template: azure-pipelines-templates/steps.yml
