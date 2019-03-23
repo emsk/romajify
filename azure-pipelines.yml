@@ -25,6 +25,10 @@ jobs:
   - template: azure-pipelines-templates/steps.yml
 
 - job: macOS
+  strategy:
+    matrix:
+      ruby26:
+        ruby_version: '2.6'
   pool:
     vmImage: 'macOS-10.13'
   steps:
@@ -38,7 +42,8 @@ jobs:
     displayName: 'rbenv init'
   - script: |
       rbenv install -l
-      rbenv install 2.6.2
+      rbenv install $(ruby_version)
+      ruby -v
     displayName: 'rbenv install'
   - template: azure-pipelines-templates/steps.yml
 
