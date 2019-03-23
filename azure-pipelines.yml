@@ -37,14 +37,21 @@ jobs:
       brew install rbenv
     displayName: 'brew install rbenv'
   - script: |
+      echo $PATH
       echo -e '\neval "$(rbenv init -)"' >> ~/.bash_profile
+      cat ~/.bash_profile
       source ~/.bash_profile
+      echo $PATH
     displayName: 'rbenv init'
   - script: |
+      which ruby
+      rbenv versions
       rbenv install -l
       rbenv install $(ruby_version)
       rbenv rehash
       rbenv local $(ruby_version)
+      which ruby
+      rbenv versions
       ruby -v
     displayName: 'rbenv install'
   - template: azure-pipelines-templates/steps.yml
