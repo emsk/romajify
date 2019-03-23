@@ -37,7 +37,7 @@ jobs:
       brew install rbenv
     displayName: 'brew install rbenv'
   - script: |
-      echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+      echo -e "\neval \"$(rbenv init -)\"" >> ~/.bash_profile
       source ~/.bash_profile
     displayName: 'rbenv init'
   - script: |
