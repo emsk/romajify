@@ -58,7 +58,11 @@ jobs:
     displayName: 'rbenv install'
   - script: |
       source ~/.bash_profile
-      gem install bundler --no-document
+      if [[ $(ruby_version) =~ 2\.[0-2]\.[0-9]+ ]]; then
+        gem install bundler --no-document -v '<2'
+      else
+        gem install bundler --no-document
+      fi
     displayName: 'gem install bundler'
   - script: |
       source ~/.bash_profile
