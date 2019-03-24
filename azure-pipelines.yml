@@ -27,6 +27,18 @@ jobs:
 - job: macOS
   strategy:
     matrix:
+      ruby20:
+        ruby_version: '2.0.0-p648'
+      ruby21:
+        ruby_version: '2.1.10'
+      ruby22:
+        ruby_version: '2.2.10'
+      ruby23:
+        ruby_version: '2.3.8'
+      ruby24:
+        ruby_version: '2.4.5'
+      ruby25:
+        ruby_version: '2.5.5'
       ruby26:
         ruby_version: '2.6.2'
   pool:
