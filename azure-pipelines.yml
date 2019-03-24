@@ -53,10 +53,21 @@ jobs:
       which gem
       which rake
       which bundle
+      source ~/.bash_profile
+      echo $PATH
+      which ruby
+      which gem
+      which rake
+      which bundle
       bundle install --retry=3 --jobs=4
-      rbenv rehash
     displayName: 'bundle install'
   - script: |
+      echo $PATH
+      which ruby
+      which gem
+      which rake
+      which bundle
+      source ~/.bash_profile
       echo $PATH
       which ruby
       which gem
