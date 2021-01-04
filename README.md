@@ -1,6 +1,7 @@
 # Romajify
 
 [![Gem Version](https://badge.fury.io/rb/romajify.svg)](https://badge.fury.io/rb/romajify)
+[![Build Status](https://github.com/emsk/romajify/workflows/build/badge.svg)](https://github.com/emsk/romajify/actions?query=workflow%3Abuild)
 [![Build Status](https://travis-ci.org/emsk/romajify.svg?branch=master)](https://travis-ci.org/emsk/romajify)
 [![Build status](https://ci.appveyor.com/api/projects/status/nusknxpo5o04jrjp?svg=true)](https://ci.appveyor.com/project/emsk/romajify)
 [![Build Status](https://dev.azure.com/emsk/romajify/_apis/build/status/emsk.romajify?branchName=master)](https://dev.azure.com/emsk/romajify/_build/latest?definitionId=2&branchName=master)
