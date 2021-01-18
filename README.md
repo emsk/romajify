@@ -2,12 +2,12 @@
 
 [![Gem Version](https://badge.fury.io/rb/romajify.svg)](https://badge.fury.io/rb/romajify)
 [![Build Status](https://github.com/emsk/romajify/workflows/build/badge.svg)](https://github.com/emsk/romajify/actions?query=workflow%3Abuild)
-[![Build Status](https://travis-ci.org/emsk/romajify.svg?branch=master)](https://travis-ci.org/emsk/romajify)
+[![Build Status](https://travis-ci.org/emsk/romajify.svg?branch=main)](https://travis-ci.org/emsk/romajify)
 [![Build status](https://ci.appveyor.com/api/projects/status/nusknxpo5o04jrjp?svg=true)](https://ci.appveyor.com/project/emsk/romajify)
-[![Build Status](https://dev.azure.com/emsk/romajify/_apis/build/status/emsk.romajify?branchName=master)](https://dev.azure.com/emsk/romajify/_build/latest?definitionId=2&branchName=master)
-[![Codecov](https://codecov.io/gh/emsk/romajify/branch/master/graph/badge.svg)](https://codecov.io/gh/emsk/romajify)
+[![Build Status](https://dev.azure.com/emsk/romajify/_apis/build/status/emsk.romajify?branchName=main)](https://dev.azure.com/emsk/romajify/_build/latest?definitionId=2&branchName=main)
+[![Codecov](https://codecov.io/gh/emsk/romajify/branch/main/graph/badge.svg)](https://codecov.io/gh/emsk/romajify)
 [![Code Climate](https://codeclimate.com/github/emsk/romajify/badges/gpa.svg)](https://codeclimate.com/github/emsk/romajify)
-[![Inline docs](http://inch-ci.org/github/emsk/romajify.svg?branch=master)](http://inch-ci.org/github/emsk/romajify)
+[![Inline docs](http://inch-ci.org/github/emsk/romajify.svg?branch=main)](http://inch-ci.org/github/emsk/romajify)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 
 Japanese romanization library for Ruby.
