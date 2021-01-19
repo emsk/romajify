@@ -10,8 +10,6 @@ jobs:
 - job: Linux
   strategy:
     matrix:
-      ruby23:
-        rubyVersion: '2.3'
       ruby24:
         rubyVersion: '2.4'
       ruby25:
