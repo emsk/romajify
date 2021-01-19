@@ -51,7 +51,7 @@ jobs:
     displayName: 'rbenv init'
   - script: |
       source ~/.bash_profile
-      SYSTEM=`uname -s` ./config
+      export SYSTEM=`uname -s` ./config
       rbenv install $(rubyVersion)
       rbenv local $(rubyVersion)
     displayName: 'rbenv install'
