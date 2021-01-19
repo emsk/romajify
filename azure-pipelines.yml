@@ -40,7 +40,7 @@ jobs:
       ruby26:
         rubyVersion: '2.6.2'
   pool:
-    vmImage: 'macOS-10.13'
+    vmImage: 'macOS-10.14'
   steps:
   - script: |
       brew -v
