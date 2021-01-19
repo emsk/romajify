@@ -34,11 +34,15 @@ jobs:
       ruby23:
         rubyVersion: '2.3.8'
       ruby24:
-        rubyVersion: '2.4.5'
+        rubyVersion: '2.4.10'
       ruby25:
-        rubyVersion: '2.5.5'
+        rubyVersion: '2.5.8'
       ruby26:
-        rubyVersion: '2.6.2'
+        rubyVersion: '2.6.6'
+      ruby27:
+        rubyVersion: '2.7.2'
+      ruby30:
+        rubyVersion: '3.0.0'
   pool:
     vmImage: 'macOS-10.14'
   steps:
