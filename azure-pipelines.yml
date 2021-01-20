@@ -41,6 +41,13 @@ jobs:
   - script: |
       ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
     displayName: 'ruby-build'
+  - script: |
+      if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
+        gem install bundler --no-document -v '<2'
+      else
+        gem install bundler --no-document
+      fi
+    displayName: 'gem install bundler'
   - template: azure-pipelines-templates/steps.yml
 
 - job: macOS
@@ -110,4 +117,7 @@ jobs:
   - task: UseRubyVersion@0
     inputs:
       versionSpec: $(rubyVersion)
+  - script: |
+      gem install bundler --no-document
+    displayName: 'gem install bundler'
   - template: azure-pipelines-templates/steps.yml
