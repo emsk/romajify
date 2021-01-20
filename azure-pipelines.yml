@@ -39,7 +39,7 @@ jobs:
       PREFIX=~/local ./ruby-build/install.sh
     displayName: 'git clone ruby-build'
   - script: |
-      ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
+      ~/local/bin/ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
     displayName: 'ruby-build'
   - script: |
       if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
