@@ -9,40 +9,25 @@ trigger:
 jobs:
 - job: Linux
   strategy:
-    matrix:
-      ruby24:
-        rubyVersion: '2.4'
-      ruby25:
-        rubyVersion: '2.5'
+  - template: azure-pipelines-templates/strategy.yml
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
-  - task: UseRubyVersion@0
-    inputs:
-      versionSpec: $(rubyVersion)
+  - script: |
+      apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+    displayName: 'apt-get install'
+  - script: |
+      git clone https://github.com/rbenv/ruby-build.git
+      PREFIX=/usr/local ./ruby-build/install.sh
+    displayName: 'git clone ruby-build'
+  - script: |
+      ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
+    displayName: 'ruby-build'
   - template: azure-pipelines-templates/steps.yml
 
 - job: macOS
   strategy:
-    matrix:
-      ruby20:
-        rubyVersion: '2.0.0-p648'
-      ruby21:
-        rubyVersion: '2.1.10'
-      ruby22:
-        rubyVersion: '2.2.10'
-      ruby23:
-        rubyVersion: '2.3.8'
-      ruby24:
-        rubyVersion: '2.4.10'
-      ruby25:
-        rubyVersion: '2.5.8'
-      ruby26:
-        rubyVersion: '2.6.6'
-      ruby27:
-        rubyVersion: '2.7.2'
-      ruby30:
-        rubyVersion: '3.0.0'
+  - template: azure-pipelines-templates/strategy.yml
   pool:
     vmImage: 'macOS-10.14'
   steps:

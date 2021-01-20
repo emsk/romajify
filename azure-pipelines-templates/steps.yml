@@ -1,5 +1,10 @@
 steps:
-- script: gem install bundler --no-document
+- script: |
+    if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
+      gem install bundler --no-document -v '<2'
+    else
+      gem install bundler --no-document
+    fi
   displayName: 'gem install bundler'
 - script: bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
