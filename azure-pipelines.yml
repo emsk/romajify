@@ -76,9 +76,9 @@ jobs:
     vmImage: 'macOS-10.14'
   steps:
   - script: |
+      brew update
       brew -v
       brew install rbenv
-      brew upgrade ruby-build
     displayName: 'brew install rbenv'
   - script: |
       echo -e '\neval "$(rbenv init -)"' >> ~/.bash_profile
