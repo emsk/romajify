@@ -53,7 +53,10 @@ jobs:
         ~/local/ruby-$(rubyVersion)/bin/gem install bundler --no-document
       fi
     displayName: 'gem install bundler'
-  - template: azure-pipelines-templates/steps.yml
+  - script: ~/local/ruby-$(rubyVersion)/bin/bundle install --retry=3 --jobs=4
+    displayName: 'bundle install'
+  - script: ~/local/ruby-$(rubyVersion)/bin/bundle exec rake
+    displayName: 'bundle exec rake'
 
 - job: macOS
   strategy:
