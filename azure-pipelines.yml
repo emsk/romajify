@@ -33,7 +33,11 @@ jobs:
   steps:
   - script: |
       sudo apt-get remove ruby
-      sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libdb-dev
+      sudo apt-get install autoconf bison build-essential libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libdb-dev
+      if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
+        sudo apt-get remove libssl-dev
+        sudo apt-get install libssl-dev=1.0.2g-1ubuntu4.18
+      fi
     displayName: 'apt-get install'
   - script: |
       git clone https://github.com/rbenv/ruby-build.git
