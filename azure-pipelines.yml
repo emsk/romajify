@@ -78,6 +78,7 @@ jobs:
   - script: |
       brew -v
       brew install rbenv
+      brew upgrade ruby-build
     displayName: 'brew install rbenv'
   - script: |
       echo -e '\neval "$(rbenv init -)"' >> ~/.bash_profile
