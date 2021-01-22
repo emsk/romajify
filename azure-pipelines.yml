@@ -42,22 +42,24 @@ jobs:
   - script: |
       git clone https://github.com/rbenv/ruby-build.git
       PREFIX=~/local ./ruby-build/install.sh
+      export PATH=$PATH:~/local/bin
     displayName: 'git clone ruby-build'
   - script: |
-      ~/local/bin/ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
+      ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
+      export PATH=$PATH:~/local/ruby-$(rubyVersion)/bin
     displayName: 'ruby-build'
   - script: |
       if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
-        ~/local/ruby-$(rubyVersion)/bin/gem install bundler --no-document -v '<2'
+        gem install bundler --no-document -v '<2'
       else
-        ~/local/ruby-$(rubyVersion)/bin/gem install bundler --no-document
+        gem install bundler --no-document
       fi
     displayName: 'gem install bundler'
   - script: |
-      ~/local/ruby-$(rubyVersion)/bin/bundle install --retry=3 --jobs=4
+      bundle install --retry=3 --jobs=4
     displayName: 'bundle install'
   - script: |
-      ~/local/ruby-$(rubyVersion)/bin/bundle exec ~/local/ruby-$(rubyVersion)/bin/rake
+      bundle exec rake
     displayName: 'bundle exec rake'
 
 - job: macOS
