@@ -53,7 +53,8 @@ jobs:
         ~/local/ruby-$(rubyVersion)/bin/gem install bundler --no-document
       fi
     displayName: 'gem install bundler'
-  - script: ~/local/ruby-$(rubyVersion)/bin/bundle install --retry=3 --jobs=4
+  - script: |
+      ~/local/ruby-$(rubyVersion)/bin/bundle install --retry=3 --jobs=4
     displayName: 'bundle install'
   - script: |
       ~/local/ruby-$(rubyVersion)/bin/bundle exec ~/local/ruby-$(rubyVersion)/bin/rake
