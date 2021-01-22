@@ -55,7 +55,9 @@ jobs:
     displayName: 'gem install bundler'
   - script: ~/local/ruby-$(rubyVersion)/bin/bundle install --retry=3 --jobs=4
     displayName: 'bundle install'
-  - script: ~/local/ruby-$(rubyVersion)/bin/bundle exec rake
+  - script: |
+      ~/local/ruby-$(rubyVersion)/bin/gem env
+      ~/local/ruby-$(rubyVersion)/bin/bundle exec rake
     displayName: 'bundle exec rake'
 
 - job: macOS
