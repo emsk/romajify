@@ -127,6 +127,10 @@ jobs:
         rubyVersion: '2.4'
       ruby25:
         rubyVersion: '2.5'
+      ruby26:
+        rubyVersion: '2.6'
+      ruby27:
+        rubyVersion: '2.7'
   pool:
     vmImage: 'vs2017-win2016'
   steps:
