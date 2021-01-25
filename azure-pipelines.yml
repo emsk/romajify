@@ -97,6 +97,7 @@ jobs:
       brew install ruby-build
     displayName: 'brew install ruby-build'
   - script: |
+      export SYSTEM=`uname -s` ./config
       ruby-build $(rubyVersion) ~/ruby-$(rubyVersion)
     displayName: 'ruby-build'
   - script: |
