@@ -51,19 +51,7 @@ jobs:
   - script: |
       $(rubyBuildBinPath)/ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
     displayName: 'ruby-build'
-  - script: |
-      if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
-        $(gemBinPath)/gem install bundler --no-document -v '<2'
-      else
-        $(gemBinPath)/gem install bundler --no-document
-      fi
-    displayName: 'gem install bundler'
-  - script: |
-      $(gemBinPath)/bundle install --retry=3 --jobs=4
-    displayName: 'bundle install'
-  - script: |
-      $(gemBinPath)/bundle exec $(gemBinPath)/rake
-    displayName: 'bundle exec rake'
+  - template: azure-pipelines-templates/steps.yml
 
 - job: macOS
   strategy:
@@ -100,19 +88,7 @@ jobs:
       export SYSTEM=`uname -s` ./config
       ruby-build $(rubyVersion) ~/ruby-$(rubyVersion)
     displayName: 'ruby-build'
-  - script: |
-      if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
-        $(gemBinPath)/gem install bundler --no-document -v '<2'
-      else
-        $(gemBinPath)/gem install bundler --no-document
-      fi
-    displayName: 'gem install bundler'
-  - script: |
-      $(gemBinPath)/bundle install --retry=3 --jobs=4
-    displayName: 'bundle install'
-  - script: |
-      $(gemBinPath)/bundle exec $(gemBinPath)/rake
-    displayName: 'bundle exec rake'
+  - template: azure-pipelines-templates/steps.yml
 
 - job: Windows
   strategy:
@@ -134,4 +110,9 @@ jobs:
   - script: |
       gem install bundler --no-document
     displayName: 'gem install bundler'
-  - template: azure-pipelines-templates/steps.yml
+  - script: |
+      bundle install --retry=3 --jobs=4
+    displayName: 'bundle install'
+  - script: |
+      bundle exec rake
+    displayName: 'bundle exec rake'
