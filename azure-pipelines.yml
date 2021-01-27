@@ -7,7 +7,7 @@ trigger:
 - main
 
 jobs:
-- job: 'ubuntu_16.04'
+- job: 'ubuntu16.04'
   strategy:
     matrix:
       ruby20:
@@ -29,7 +29,7 @@ jobs:
       ruby30:
         rubyVersion: '3.0.0'
   pool:
-    vmImage: 'ubuntu_16.04'
+    vmImage: 'ubuntu-16.04'
   variables:
   - name: rubyBuildBinPath
     value: ~/local/bin
@@ -53,7 +53,7 @@ jobs:
     displayName: 'ruby-build'
   - template: azure-pipelines-templates/steps.yml
 
-- job: 'ubuntu-18.04'
+- job: 'ubuntu18.04'
   strategy:
     matrix:
       ruby20:
