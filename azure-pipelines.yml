@@ -7,7 +7,7 @@ trigger:
 - main
 
 jobs:
-- job: Linux
+- job: 'ubuntu-16.04'
   strategy:
     matrix:
       ruby20:
@@ -42,6 +42,52 @@ jobs:
       if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
         sudo apt-get remove libssl-dev
         sudo apt-get install libssl-dev=1.0.2g-1ubuntu4.18
+      fi
+    displayName: 'apt-get install'
+  - script: |
+      git clone https://github.com/rbenv/ruby-build.git
+      PREFIX=~/local ./ruby-build/install.sh
+    displayName: 'git clone ruby-build'
+  - script: |
+      $(rubyBuildBinPath)/ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
+    displayName: 'ruby-build'
+  - template: azure-pipelines-templates/steps.yml
+
+- job: 'ubuntu-18.04'
+  strategy:
+    matrix:
+      ruby20:
+        rubyVersion: '2.0.0-p648'
+      ruby21:
+        rubyVersion: '2.1.10'
+      ruby22:
+        rubyVersion: '2.2.10'
+      ruby23:
+        rubyVersion: '2.3.8'
+      ruby24:
+        rubyVersion: '2.4.10'
+      ruby25:
+        rubyVersion: '2.5.8'
+      ruby26:
+        rubyVersion: '2.6.6'
+      ruby27:
+        rubyVersion: '2.7.2'
+      ruby30:
+        rubyVersion: '3.0.0'
+  pool:
+    vmImage: 'ubuntu-18.04'
+  variables:
+  - name: rubyBuildBinPath
+    value: ~/local/bin
+  - name: gemBinPath
+    value: ~/local/ruby-$(rubyVersion)/bin
+  steps:
+  - script: |
+      sudo apt-get remove ruby
+      sudo apt-get install autoconf bison build-essential libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libdb-dev
+      if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
+        sudo apt-get remove libssl-dev
+        sudo apt-get install libssl1.0-dev
       fi
     displayName: 'apt-get install'
   - script: |
