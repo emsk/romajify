@@ -7,7 +7,7 @@ trigger:
 - main
 
 jobs:
-- job: 'ubuntu16.04'
+- job: 'ubuntu_1604'
   strategy:
     matrix:
       ruby20:
@@ -53,7 +53,7 @@ jobs:
     displayName: 'ruby-build'
   - template: azure-pipelines-templates/steps.yml
 
-- job: 'ubuntu18.04'
+- job: 'ubuntu_1804'
   strategy:
     matrix:
       ruby20:
