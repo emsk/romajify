@@ -1,5 +1,13 @@
 steps:
 - script: |
+    brew update
+    brew install ruby-build
+  displayName: 'brew install ruby-build'
+- script: |
+    export SYSTEM=`uname -s` ./config
+    ruby-build $(rubyVersion) ~/ruby-$(rubyVersion)
+  displayName: 'ruby-build'
+- script: |
     if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
       $(gemBinPath)/gem install bundler --no-document -v '<2'
     else

@@ -31,27 +31,14 @@ jobs:
   pool:
     vmImage: 'ubuntu-16.04'
   variables:
+  - name: libsslDev10PackageName
+    value: libssl-dev=1.0.2g-1ubuntu4.18
   - name: rubyBuildBinPath
     value: ~/local/bin
   - name: gemBinPath
     value: ~/local/ruby-$(rubyVersion)/bin
   steps:
-  - script: |
-      sudo apt-get remove ruby
-      sudo apt-get install autoconf bison build-essential libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libdb-dev
-      if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
-        sudo apt-get remove libssl-dev
-        sudo apt-get install libssl-dev=1.0.2g-1ubuntu4.18
-      fi
-    displayName: 'apt-get install'
-  - script: |
-      git clone https://github.com/rbenv/ruby-build.git
-      PREFIX=~/local ./ruby-build/install.sh
-    displayName: 'git clone ruby-build'
-  - script: |
-      $(rubyBuildBinPath)/ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
-    displayName: 'ruby-build'
-  - template: azure-pipelines-templates/steps.yml
+  - template: azure-pipelines-templates/steps-ubuntu.yml
 
 - job: 'ubuntu_1804'
   strategy:
@@ -77,27 +64,14 @@ jobs:
   pool:
     vmImage: 'ubuntu-18.04'
   variables:
+  - name: libsslDev10PackageName
+    value: libssl1.0-dev
   - name: rubyBuildBinPath
     value: ~/local/bin
   - name: gemBinPath
     value: ~/local/ruby-$(rubyVersion)/bin
   steps:
-  - script: |
-      sudo apt-get remove ruby
-      sudo apt-get install autoconf bison build-essential libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libdb-dev
-      if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
-        sudo apt-get remove libssl-dev
-        sudo apt-get install libssl1.0-dev
-      fi
-    displayName: 'apt-get install'
-  - script: |
-      git clone https://github.com/rbenv/ruby-build.git
-      PREFIX=~/local ./ruby-build/install.sh
-    displayName: 'git clone ruby-build'
-  - script: |
-      $(rubyBuildBinPath)/ruby-build $(rubyVersion) ~/local/ruby-$(rubyVersion)
-    displayName: 'ruby-build'
-  - template: azure-pipelines-templates/steps.yml
+  - template: azure-pipelines-templates/steps-ubuntu.yml
 
 - job: macOS
   strategy:
@@ -126,15 +100,7 @@ jobs:
   - name: gemBinPath
     value: ~/ruby-$(rubyVersion)/bin
   steps:
-  - script: |
-      brew update
-      brew install ruby-build
-    displayName: 'brew install ruby-build'
-  - script: |
-      export SYSTEM=`uname -s` ./config
-      ruby-build $(rubyVersion) ~/ruby-$(rubyVersion)
-    displayName: 'ruby-build'
-  - template: azure-pipelines-templates/steps.yml
+  - template: azure-pipelines-templates/steps-macos.yml
 
 - job: Windows
   strategy:
@@ -150,15 +116,4 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  - task: UseRubyVersion@0
-    inputs:
-      versionSpec: $(rubyVersion)
-  - script: |
-      gem install bundler --no-document
-    displayName: 'gem install bundler'
-  - script: |
-      bundle install --retry=3 --jobs=4
-    displayName: 'bundle install'
-  - script: |
-      bundle exec rake
-    displayName: 'bundle exec rake'
+  - template: azure-pipelines-templates/steps-windows.yml
