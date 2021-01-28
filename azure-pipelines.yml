@@ -73,6 +73,46 @@ jobs:
   steps:
   - template: azure-pipelines-templates/steps-ubuntu.yml
 
+- job: 'ubuntu_2004'
+  strategy:
+    matrix:
+      ruby20:
+        rubyVersion: '2.0.0-p648'
+      ruby21:
+        rubyVersion: '2.1.10'
+      ruby22:
+        rubyVersion: '2.2.10'
+      ruby23:
+        rubyVersion: '2.3.8'
+      ruby24:
+        rubyVersion: '2.4.10'
+      ruby25:
+        rubyVersion: '2.5.8'
+      ruby26:
+        rubyVersion: '2.6.6'
+      ruby27:
+        rubyVersion: '2.7.2'
+      ruby30:
+        rubyVersion: '3.0.0'
+  pool:
+    vmImage: 'ubuntu-20.04'
+  variables:
+  - name: libsslDev10PackageName
+    value: libssl1.0-dev
+  - name: rubyBuildBinPath
+    value: ~/local/bin
+  - name: gemBinPath
+    value: ~/local/ruby-$(rubyVersion)/bin
+  steps:
+  - script: |
+      if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
+        echo 'deb http://security.ubuntu.com/ubuntu bionic-security main' | sudo tee -a /etc/apt/sources.list
+        sudo apt-get update
+        sudo apt-cache policy $(libsslDev10PackageName)
+      fi
+    displayName: 'add package source'
+  - template: azure-pipelines-templates/steps-ubuntu.yml
+
 - job: macOS
   strategy:
     matrix:
