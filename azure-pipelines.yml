@@ -113,7 +113,7 @@ jobs:
     displayName: 'add package source'
   - template: azure-pipelines-templates/steps-ubuntu.yml
 
-- job: macOS
+- job: 'macOS_1014'
   strategy:
     matrix:
       ruby20:
@@ -136,6 +136,35 @@ jobs:
         rubyVersion: '3.0.0'
   pool:
     vmImage: 'macOS-10.14'
+  variables:
+  - name: gemBinPath
+    value: ~/ruby-$(rubyVersion)/bin
+  steps:
+  - template: azure-pipelines-templates/steps-macos.yml
+
+- job: 'macOS_1015'
+  strategy:
+    matrix:
+      ruby20:
+        rubyVersion: '2.0.0-p648'
+      ruby21:
+        rubyVersion: '2.1.10'
+      ruby22:
+        rubyVersion: '2.2.10'
+      ruby23:
+        rubyVersion: '2.3.8'
+      ruby24:
+        rubyVersion: '2.4.10'
+      ruby25:
+        rubyVersion: '2.5.8'
+      ruby26:
+        rubyVersion: '2.6.6'
+      ruby27:
+        rubyVersion: '2.7.2'
+      ruby30:
+        rubyVersion: '3.0.0'
+  pool:
+    vmImage: 'macOS-10.15'
   variables:
   - name: gemBinPath
     value: ~/ruby-$(rubyVersion)/bin
