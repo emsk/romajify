@@ -171,7 +171,7 @@ jobs:
   steps:
   - template: azure-pipelines-templates/steps-macos.yml
 
-- job: Windows
+- job: 'vs2017_win2016'
   strategy:
     matrix:
       ruby24:
@@ -184,5 +184,21 @@ jobs:
         rubyVersion: '2.7'
   pool:
     vmImage: 'vs2017-win2016'
+  steps:
+  - template: azure-pipelines-templates/steps-windows.yml
+
+- job: 'windows_2019'
+  strategy:
+    matrix:
+      ruby24:
+        rubyVersion: '2.4'
+      ruby25:
+        rubyVersion: '2.5'
+      ruby26:
+        rubyVersion: '2.6'
+      ruby27:
+        rubyVersion: '2.7'
+  pool:
+    vmImage: 'windows-2019'
   steps:
   - template: azure-pipelines-templates/steps-windows.yml
