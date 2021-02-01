@@ -170,10 +170,10 @@ jobs:
     value: ~/ruby-$(rubyVersion)/bin
   steps:
   - script: |
-    if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
-      sudo xcode-select --switch '/Applications/Xcode_11.7.app'
-    fi
-    xcodebuild -version
+      if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
+        sudo xcode-select --switch '/Applications/Xcode_11.7.app'
+      fi
+      xcodebuild -version
     displayName: 'select Xcode version'
   - template: azure-pipelines-templates/steps-macos.yml
 
