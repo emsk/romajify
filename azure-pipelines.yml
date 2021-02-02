@@ -36,7 +36,7 @@ jobs:
   - name: rubyBuildBinPath
     value: ~/local/bin
   - name: rubyPath
-    value: ~/local/ruby-$(rubyVersion)
+    value: /home/vsts/local/ruby-$(rubyVersion)
   - name: gemBinPath
     value: $(rubyPath)/bin
   steps:
@@ -71,7 +71,7 @@ jobs:
   - name: rubyBuildBinPath
     value: ~/local/bin
   - name: rubyPath
-    value: ~/local/ruby-$(rubyVersion)
+    value: /home/vsts/local/ruby-$(rubyVersion)
   - name: gemBinPath
     value: $(rubyPath)/bin
   steps:
@@ -106,7 +106,7 @@ jobs:
   - name: rubyBuildBinPath
     value: ~/local/bin
   - name: rubyPath
-    value: ~/local/ruby-$(rubyVersion)
+    value: /home/vsts/local/ruby-$(rubyVersion)
   - name: gemBinPath
     value: $(rubyPath)/bin
   steps:
