@@ -35,8 +35,10 @@ jobs:
     value: libssl-dev=1.0.2g-1ubuntu4.18
   - name: rubyBuildBinPath
     value: ~/local/bin
+  - name: rubyPath
+    value: ~/local/ruby-$(rubyVersion)
   - name: gemBinPath
-    value: ~/local/ruby-$(rubyVersion)/bin
+    value: $(rubyPath)/bin
   steps:
   - template: azure-pipelines-templates/steps-ubuntu.yml
 
@@ -68,8 +70,10 @@ jobs:
     value: libssl1.0-dev
   - name: rubyBuildBinPath
     value: ~/local/bin
+  - name: rubyPath
+    value: ~/local/ruby-$(rubyVersion)
   - name: gemBinPath
-    value: ~/local/ruby-$(rubyVersion)/bin
+    value: $(rubyPath)/bin
   steps:
   - template: azure-pipelines-templates/steps-ubuntu.yml
 
@@ -101,8 +105,10 @@ jobs:
     value: libssl1.0-dev
   - name: rubyBuildBinPath
     value: ~/local/bin
+  - name: rubyPath
+    value: ~/local/ruby-$(rubyVersion)
   - name: gemBinPath
-    value: ~/local/ruby-$(rubyVersion)/bin
+    value: $(rubyPath)/bin
   steps:
   - script: |
       if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
