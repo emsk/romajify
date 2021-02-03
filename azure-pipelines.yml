@@ -143,8 +143,10 @@ jobs:
   pool:
     vmImage: 'macOS-10.14'
   variables:
+  - name: rubyPath
+    value: /Users/runner/ruby-$(rubyVersion)
   - name: gemBinPath
-    value: ~/ruby-$(rubyVersion)/bin
+    value: $(rubyPath)/bin
   steps:
   - template: azure-pipelines-templates/steps-macos.yml
 
@@ -172,8 +174,10 @@ jobs:
   pool:
     vmImage: 'macOS-10.15'
   variables:
+  - name: rubyPath
+    value: /Users/runner/ruby-$(rubyVersion)
   - name: gemBinPath
-    value: ~/ruby-$(rubyVersion)/bin
+    value: $(rubyPath)/bin
   steps:
   - script: |
       if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then

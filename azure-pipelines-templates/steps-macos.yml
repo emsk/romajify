@@ -3,9 +3,16 @@ steps:
     brew update
     brew install ruby-build
   displayName: 'brew install ruby-build'
+- task: Cache@2
+  inputs:
+    key: 'ruby | "$(Agent.JobName)" | "$(rubyVersion)"'
+    path: $(rubyPath)
+    cacheHitVar: rubyCacheRestored
+  displayName: 'cache Ruby'
 - script: |
     export SYSTEM=`uname -s` ./config
-    ruby-build $(rubyVersion) ~/ruby-$(rubyVersion)
+    ruby-build $(rubyVersion) $(rubyPath)
+  condition: ne(variables.rubyCacheRestored, 'true')
   displayName: 'ruby-build'
 - script: |
     if [[ $(rubyVersion) =~ 2\.[0-2]\.[0-9]+ ]]; then
