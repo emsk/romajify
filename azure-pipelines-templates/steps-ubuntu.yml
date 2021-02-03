@@ -1,5 +1,11 @@
 steps:
 - script: |
+    echo $(Agent.Id)
+    echo $(Agent.JobName)
+    echo $(Agent.MachineName)
+    echo $(Agent.Name)
+  displayName: 'show agent variables'
+- script: |
     sudo apt-get remove ruby
     sudo apt-get install autoconf bison build-essential libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libdb-dev
     if [[ $(rubyVersion) =~ 2\.[0-3]\.[0-9]+ ]]; then
