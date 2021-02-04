@@ -1,14 +1,15 @@
 steps:
-- script: |
-    brew update
-    brew install ruby-build
-  displayName: 'brew install ruby-build'
 - task: Cache@2
   inputs:
     key: 'ruby | "$(Agent.JobName)" | "$(rubyVersion)"'
     path: $(rubyPath)
     cacheHitVar: rubyCacheRestored
   displayName: 'cache Ruby'
+- script: |
+    brew update
+    brew install ruby-build
+  condition: ne(variables.rubyCacheRestored, 'true')
+  displayName: 'brew install ruby-build'
 - script: |
     export SYSTEM=`uname -s` ./config
     ruby-build $(rubyVersion) $(rubyPath)

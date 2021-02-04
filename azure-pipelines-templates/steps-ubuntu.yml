@@ -7,16 +7,17 @@ steps:
       sudo apt-get install $(libsslDev10PackageName)
     fi
   displayName: 'apt-get install'
-- script: |
-    git clone https://github.com/rbenv/ruby-build.git
-    PREFIX=~/local ./ruby-build/install.sh
-  displayName: 'git clone ruby-build'
 - task: Cache@2
   inputs:
     key: 'ruby | "$(Agent.JobName)" | "$(rubyVersion)"'
     path: $(rubyPath)
     cacheHitVar: rubyCacheRestored
   displayName: 'cache Ruby'
+- script: |
+    git clone https://github.com/rbenv/ruby-build.git
+    PREFIX=~/local ./ruby-build/install.sh
+  condition: ne(variables.rubyCacheRestored, 'true')
+  displayName: 'git clone ruby-build'
 - script: |
     $(rubyBuildBinPath)/ruby-build $(rubyVersion) $(rubyPath)
   condition: ne(variables.rubyCacheRestored, 'true')
