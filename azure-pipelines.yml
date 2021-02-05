@@ -116,7 +116,7 @@ jobs:
         sudo apt-get update
         sudo apt-cache policy $(libsslDev10PackageName)
       fi
-    displayName: 'add package source'
+    displayName: 'Add libssl1.0-dev source'
   - template: azure-pipelines-templates/steps-ubuntu.yml
 
 - job: 'macOS_1014'
@@ -184,7 +184,7 @@ jobs:
         sudo xcode-select --switch '/Applications/Xcode_11.7.app'
       fi
       xcodebuild -version
-    displayName: 'select Xcode version'
+    displayName: 'Select Xcode version'
   - template: azure-pipelines-templates/steps-macos.yml
 
 - job: 'vs2017_win2016'
