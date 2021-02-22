@@ -30,5 +30,5 @@ Style/SymbolProc:
   Exclude:
     - 'spec/spec_helper.rb'
 
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Enabled: false
