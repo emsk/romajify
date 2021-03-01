@@ -98,13 +98,7 @@ http://www.rubydoc.info/gems/romajify
 
 ## Supported Ruby Versions
 
-* Ruby 2.0.0
-* Ruby 2.1
-* Ruby 2.2
-* Ruby 2.3
-* Ruby 2.4
-* Ruby 2.5
-* Ruby 2.6
+Ruby 2.0.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 3.0
 
 ## Contributing
 
