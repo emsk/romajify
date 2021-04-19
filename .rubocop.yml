@@ -3,6 +3,7 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   DisplayCopNames: true
   NewCops: enable
+  SuggestExtensions: false
 
 Layout/EmptyLinesAroundModuleBody:
   Enabled: false
